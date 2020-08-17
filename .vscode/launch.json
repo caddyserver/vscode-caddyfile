@@ -2,6 +2,7 @@
 // Use IntelliSense to learn about possible attributes.
 // Hover to view descriptions of existing attributes.
 // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+
 {
     "version": "0.2.0",
 
@@ -11,9 +12,19 @@
             "type": "extensionHost",
             "request": "launch",
             "runtimeExecutable": "${execPath}",
+
             "args": [
                 "--extensionDevelopmentPath=${workspaceFolder}"
-            ]
+            ],
+
+            "outFiles": [
+                "${workspaceFolder}/dist/**/*.js"
+            ],
+
+            "stopOnEntry": false,
+            "sourceMaps": true,
+            "smartStep": true,
+            "preLaunchTask": "npm: webpack",
         }
     ]
 }

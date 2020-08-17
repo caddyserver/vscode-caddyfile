@@ -1,0 +1,14 @@
+{
+    "files.exclude": {
+        "out": true,
+        "typings": false
+    },
+
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "out/": true
+    },
+
+    "editor.insertSpaces": false,
+}
