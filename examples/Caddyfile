@@ -1,0 +1,48 @@
+{
+	auto_https disable_redirects
+}
+
+<domain>:443 {
+	# Application Root
+	root * /var/www/pterodactyl/
+
+	# Enable the file server (required for assets to be served)
+	file_server
+
+	# TLS
+	tls "/etc/letsencrypt/live/<domain>/fullchain.pem" "/etc/letsencrypt/live/<domain>/privkey.pem" {
+		protocols tls1.2 tls1.3
+	}
+
+	# Headers
+	header {
+		-Server
+		Referrer-Policy "same-origin"
+		+X-Frame-Options "deny"
+		X-XSS-Protection "1; mode=block"
+		X-Content-Type-Options "nosniff"
+	}
+
+	# Enable compression
+	encode gzip zstd
+
+	# PHP-FPM
+	php_fastcgi unix//var/run/php-fpm/www.sock
+
+	# Match dotfiles
+	@startsWithDot {
+		path \/\.
+		not path .well-known
+	}
+
+	# ?
+	rewrite @startsWithDot /index.php{uri}
+
+	# ?
+	@phpRewrite {
+		not file favicon.ico
+	}
+
+	# ?
+	try_files @phpRewrite {path} {path}/ /index.php?{query}
+}

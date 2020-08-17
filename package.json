@@ -1,0 +1,100 @@
+{
+    "name": "caddyfile-support",
+    "displayName": "Caddyfile Support",
+    "description": "",
+    "version": "0.0.1",
+    "license": "MIT",
+
+    "categories": [
+        "Programming Languages",
+        "Linters",
+        "Formatters"
+    ],
+
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/matthewpi/vscode-caddyfile-support"
+    },
+
+    "bugs": {
+        "url": "https://github.com/matthewpi/vscode-caddyfile-support/issues"
+    },
+
+    "author": {
+        "name": "Matthew Penner",
+        "email": "me@matthewp.io",
+        "url": "https://matthewp.io"
+    },
+
+    "main": "./dist/main.js",
+
+    "scripts": {
+        "vscode:prepublish": "yarn run compile",
+        "compile": "webpack --mode production",
+        "webpack": "webpack --mode development",
+        "webpack-dev": "webpack --mode development --watch",
+        "watch": "tsc -watch -p ./"
+    },
+
+    "dependencies": {
+        "tree-kill": "file:third_party/tree-kill"
+    },
+
+    "devDependencies": {
+        "@types/node": "^14.0.27",
+        "@types/vscode": "^1.48.0",
+        "ts-loader": "^8.0.2",
+        "tslint": "^6.1.3",
+        "typescript": "^3.9.7",
+        "webpack": "^4.44.1",
+        "webpack-cli": "^3.3.12"
+    },
+
+    "engines": {
+        "vscode": "^1.48.0"
+    },
+
+    "activationEvents": [
+        "workspaceContains:**/Caddyfile",
+        "workspaceContains:**/caddyfile",
+        "workspaceContains:**/*.Caddyfile",
+        "workspaceContains:**/*.caddyfile",
+        "onLanguage:caddyfile"
+    ],
+
+    "contributes": {
+        "languages": [
+            {
+                "id": "caddyfile",
+                "configuration": "./language-configuration.json",
+
+                "aliases": [
+                    "Caddyfile",
+                    "caddyfile"
+                ],
+
+                "extensions": [
+                    "Caddyfile",
+                    "caddyfile",
+                    "*.Caddyfile",
+                    "*.caddyfile"
+                ]
+            }
+        ],
+
+        "grammars": [
+            {
+                "language": "caddyfile",
+                "scopeName": "source.Caddyfile",
+                "path": "./syntaxes/caddyfile.tmLanguage.json"
+            }
+        ],
+
+        "configurationDefaults": {
+            "[caddyfile]": {
+                "editor.insertSpaces": false,
+                "editor.formatOnSave": true
+            }
+        }
+    }
+}
