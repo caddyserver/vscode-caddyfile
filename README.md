@@ -25,5 +25,5 @@ This is essentially a fork of [`vscode-caddyfile-syntax`](https://github.com/Zam
 
 ## Release Notes
 
-### 0.0.1
+### v0.0.1
 - Initial Release
