@@ -7,16 +7,19 @@ Adds support for [`Caddyfile`](https://caddyserver.com/docs/caddyfile/concepts) 
 
 This is essentially a fork of [`vscode-caddyfile-syntax`](https://github.com/Zamerick/vscode-caddyfile-syntax) with additional features.
 
+## Configuration
+- `caddyfile.executable`: Location of the `caddy` executable to use for code formatting and linting. (Default: "")
+
 ## Features
 - Syntax Highlighting
-- Format on Save
+- Automatic Formatting (supports Format on Save)
 - Support for Caddyfile v2
 
 ## Requirements
-- `caddy` executable located in `$PATH`
+- `caddy` executable (required for Automatic Formatting and Linting)
 
 ## Known Issues
-- `caddy` executable must be located at `/usr/local/bin/caddy`
+- None
 
 ## Coming Soon
 - Highlighting for Matchers

@@ -1,29 +1,35 @@
 {
     "name": "caddyfile-support",
     "displayName": "Caddyfile Support",
-    "description": "",
+    "description": "Adds support for Caddyfile syntax highlighting and automatic formatting.",
     "version": "0.0.1",
     "license": "MIT",
     "publisher": "matthewpi",
     "private": true,
+
     "categories": [
         "Programming Languages",
         "Linters",
         "Formatters"
     ],
+
     "repository": {
         "type": "git",
         "url": "https://github.com/matthewpi/vscode-caddyfile-support"
     },
+
     "bugs": {
         "url": "https://github.com/matthewpi/vscode-caddyfile-support/issues"
     },
+
     "author": {
         "name": "Matthew Penner",
         "email": "me@matthewp.io",
         "url": "https://matthewp.io"
     },
+
     "main": "./dist/main.js",
+
     "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "webpack --mode production",
@@ -31,10 +37,13 @@
         "webpack-dev": "webpack --mode development --watch",
         "watch": "tsc -watch -p ./"
     },
+
     "extensionDependencies": [],
+
     "dependencies": {
         "tree-kill": "file:third_party/tree-kill"
     },
+
     "devDependencies": {
         "@types/node": "^14.0.27",
         "@types/vscode": "^1.48.0",
@@ -44,9 +53,11 @@
         "webpack": "^4.44.1",
         "webpack-cli": "^3.3.12"
     },
+
     "engines": {
         "vscode": "^1.48.0"
     },
+
     "activationEvents": [
         "workspaceContains:**/Caddyfile",
         "workspaceContains:**/caddyfile",
@@ -54,15 +65,18 @@
         "workspaceContains:**/*.caddyfile",
         "onLanguage:caddyfile"
     ],
+
     "contributes": {
         "languages": [
             {
                 "id": "caddyfile",
                 "configuration": "./language-configuration.json",
+
                 "aliases": [
                     "Caddyfile",
                     "caddyfile"
                 ],
+
                 "extensions": [
                     "Caddyfile",
                     "caddyfile",
@@ -71,6 +85,7 @@
                 ]
             }
         ],
+
         "grammars": [
             {
                 "language": "caddyfile",
@@ -78,10 +93,23 @@
                 "path": "./syntaxes/caddyfile.tmLanguage.json"
             }
         ],
+
         "configurationDefaults": {
             "[caddyfile]": {
                 "editor.insertSpaces": false,
                 "editor.formatOnSave": true
+            }
+        },
+
+        "configuration": {
+            "title": "Caddyfile",
+
+            "properties": {
+                "caddyfile.executable": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Location of the `caddy` executable to use for code formatting and linting."
+                }
             }
         }
     }

@@ -1,5 +1,4 @@
 **/*.map
-**/tslint.json
 .github/**/*
 .gitignore
 .prettierrc.json
@@ -7,13 +6,11 @@
 .vscode/
 SECURITY.md
 build/
-docs/
+examples/
 node_modules
 out/
 src/
 test/
 third_party/
-tools/
 tsconfig.json
-typings/
 webpack.config.js

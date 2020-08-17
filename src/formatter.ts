@@ -22,13 +22,19 @@ export class CaddyfileDocumentFormattingEditProvider implements vscode.DocumentF
     }
 
     private runFormatter(document: vscode.TextDocument, token: vscode.CancellationToken): Thenable<vscode.TextEdit[]> {
-        // TODO: Dynamically get caddy executable path.
-        const formatCommandBinPath = "/usr/local/bin/caddy";
+        const executablePath: string = vscode.workspace.getConfiguration("caddyfile").get("executable");
 
         return new Promise<vscode.TextEdit[]>((resolve, reject) => {
-            if (!path.isAbsolute(formatCommandBinPath)) {
-                vscode.window.showInformationMessage("Caddy was not found in your $PATH");
-                return reject();
+            let executable: string;
+            if (executablePath !== undefined && executablePath !== null && executablePath !== "") {
+                if (!path.isAbsolute(executablePath)) {
+                    vscode.window.showInformationMessage("Invalid executable path for caddy.");
+                    return reject();
+                }
+
+                executable = executablePath;
+            } else {
+                executable = "caddy";
             }
 
             const cwd = path.dirname(document.fileName);
@@ -36,7 +42,7 @@ export class CaddyfileDocumentFormattingEditProvider implements vscode.DocumentF
             let stderr = "";
 
             // Use spawn instead of exec to avoid maxBufferExceeded error
-            const p = cp.spawn(formatCommandBinPath, [ "fmt", document.fileName ], { cwd });
+            const p = cp.spawn(executable, [ "fmt", document.fileName ], { cwd });
             token.onCancellationRequested(() => !p.killed && killProcessTree(p));
 
             p.stdout.setEncoding("utf8");
