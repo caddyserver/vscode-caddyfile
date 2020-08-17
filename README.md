@@ -8,7 +8,7 @@ Adds support for [`Caddyfile`](https://caddyserver.com/docs/caddyfile/concepts) 
 This is essentially a fork of [`vscode-caddyfile-syntax`](https://github.com/Zamerick/vscode-caddyfile-syntax) with additional features.
 
 ## Configuration
-- `caddyfile.executable`: Location of the `caddy` executable to use for code formatting and linting. (Default: "")
+- `caddyfile.executable`: Location of the `caddy` executable to use for code formatting and linting. (Default: `""`)
 
 ## Features
 - Syntax Highlighting

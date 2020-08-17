@@ -1,0 +1,18 @@
+example.com
+
+root * /var/www/pterodactyl/
+
+-Server
+Referrer-Policy "same-origin"
++X-Frame-Options "deny"
+X-XSS-Protection "1; mode=block"
+X-Content-Type-Options "nosniff"
+
+# Match dotfiles
+@startsWithDot {
+	path \/\.
+	not path .well-known
+}
+
+# ?
+rewrite @startsWithDot /index.php{uri}

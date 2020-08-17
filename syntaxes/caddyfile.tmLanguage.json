@@ -9,6 +9,31 @@
 		{ "include": "#comments" },
 		{ "include": "#variables" },
 		{ "include": "#strings" },
+		{ "include": "#matchers" },
+		{ "include": "#domains" },
+
+		{
+			"begin": "(^\\s*)([\\w+-]+\\b)",
+			"end": "\n",
+
+			"beginCaptures": {
+				"0": { "name": "keyword.Caddyfile" }
+			},
+
+			"endCaptures": {
+				"0": { "name": "keyword.Caddyfile"}
+			},
+
+			"patterns": [
+				{ "include": "#strings" },
+
+				{
+					"begin": "@",
+					"end": " ",
+					"name": "support.function.Caddyfile"
+				}
+			]
+		},
 
 		{
 			"begin": "(^.*)({\\s+$)",
@@ -26,6 +51,7 @@
 				{ "include": "#comments" },
 				{ "include": "#variables" },
 				{ "include": "#strings" },
+				{ "include": "#matchers" },
 
 				{
 					"comment": "Directives",
@@ -46,12 +72,15 @@
 						{ "include": "#comments" },
 						{ "include": "#variables" },
 						{ "include": "#strings" },
+						{ "include": "#matchers" },
+
 						{
 							"comment": "Sub Directives",
 							"match": "(^\\s*)([\\w+-]+\\b)",
-
 							"captures": {
-								"2": { "name": "keyword.Caddyfile" }
+								"2": {
+									"name": "keyword.Caddyfile"
+								}
 							}
 						}
 					]
@@ -115,8 +144,17 @@
 		"domains": {
 			"patterns": [
 				{
-					"name": "keyword.control.caddyfile",
+					"name": "support.function.caddyfile",
 					"match": "(((\\d{1,3}\\.){3}\\d{1,3})|(((\\d|\\w){1,}\\.)?(\\w|\\d){1,63})(\\.\\w{2,24}))(:\\d{1,})?\\s"
+				}
+			]
+		},
+
+		"matchers": {
+			"patterns": [
+				{
+					"name": "support.function.Caddyfile",
+					"match": "(^\\s*)(@[\\w]+\\b)"
 				}
 			]
 		}
