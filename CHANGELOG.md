@@ -4,5 +4,5 @@ All notable changes to the "caddyfile-support" extension will be documented in t
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-### 0.0.1
+### v0.0.1
 - Initial Release
