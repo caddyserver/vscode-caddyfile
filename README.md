@@ -25,8 +25,3 @@ This is essentially a fork of [`vscode-caddyfile-syntax`](https://github.com/Zam
 - Highlighting for Matchers
 - IntelliSense Support
 - Automatic Linting (using `caddy validate`)
-
-## Release Notes
-
-### v0.0.1
-- Initial Release
