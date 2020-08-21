@@ -3,7 +3,6 @@ import cp = require("child_process");
 import kill = require("tree-kill");
 import path = require("path");
 import vscode = require("vscode");
-import fs = require("fs");
 
 export class CaddyfileDocumentFormattingEditProvider implements vscode.DocumentFormattingEditProvider {
     public provideDocumentFormattingEdits(document: vscode.TextDocument, options: vscode.FormattingOptions, token: vscode.CancellationToken): vscode.ProviderResult<vscode.TextEdit[]> {
