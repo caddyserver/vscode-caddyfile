@@ -5,7 +5,7 @@
 
 Adds support for [`Caddyfile`](https://caddyserver.com/docs/caddyfile/concepts) syntax highlighting and automatic formatting.
 
-This is essentially a fork of [`vscode-caddyfile-syntax`](https://github.com/Zamerick/vscode-caddyfile-syntax) with additional features.
+This is essentially an updated version of [`vscode-caddyfile-syntax`](https://github.com/Zamerick/vscode-caddyfile-syntax) with additional features.
 
 ## Configuration
 - `caddyfile.executable`: Location of the `caddy` executable to use for code formatting and linting. (Default: `""`)
@@ -19,9 +19,11 @@ This is essentially a fork of [`vscode-caddyfile-syntax`](https://github.com/Zam
 - `caddy` executable (required for Automatic Formatting and Linting)
 
 ## Known Issues
-- None
+- Automatic formatting is broken until a [PR for caddy](https://github.com/caddyserver/caddy/pull/3680) is merged and released.
 
 ## Coming Soon
-- Highlighting for Matchers
 - IntelliSense Support
 - Automatic Linting (using `caddy validate`)
+
+## Changelog
+See [CHANGELOG.md](https://github.com/matthewpi/vscode-caddyfile-support/blob/master/CHANGELOG.md)
