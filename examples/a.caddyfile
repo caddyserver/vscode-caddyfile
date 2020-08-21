@@ -1,12 +1,14 @@
 example.com
 
-root * /var/www/pterodactyl/
+root * /var/www/
 
--Server
-Referrer-Policy "same-origin"
-+X-Frame-Options "deny"
-X-XSS-Protection "1; mode=block"
-X-Content-Type-Options "nosniff"
+header {
+	-Server
+	Referrer-Policy "same-origin"
+	+X-Frame-Options "deny"
+	X-XSS-Protection "1; mode=block"
+	X-Content-Type-Options "nosniff"
+}
 
 # Match dotfiles
 @startsWithDot {

@@ -1,3 +1,75 @@
-example.com {
-	root * /www
+{
+	debug
+	admin off
+	on_demand_tls {
+		ask https://example.com
+	}
+}
+
+(blocking) {
+	@blocked {
+		path *.txt *.md *.mdown /site/*
+	}
+	redir @blocked /
+}
+
+http://example.com:8080, https://fake.org:8443, fake.co.uk, {$ENV_SITE} {
+	root * /srv
+
+	respond /get-env {$ENV_VAR}
+
+	tls off
+
+	route {
+		# Add trailing slash for directory requests
+		@canonicalPath {
+			not path */
+
+			file {
+				try_files {path}/index.php
+			}
+
+			not path */
+		}
+		redir @canonicalPath {path}/ 308
+
+		# If the requested file does not exist, try index files
+		@indexFiles {
+			file {
+				try_files {path} {path}/index.php index.php
+				split_path .php
+			}
+		}
+		rewrite @indexFiles {http.matchers.file.relative}
+
+		# Proxy PHP files to the FastCGI responder
+		@phpFiles {
+			path *.php
+		}
+		reverse_proxy @phpFiles unix//var/run/php7.4-fpm.sock {
+			transport fastcgi {
+				split .php
+			}
+		}
+	}
+
+	@encode_exts {
+		path / *.html *.js *.css *.svg
+	}
+
+	header {
+		X-Content-Type-Options nosniff
+		X-XSS-Protection "1; mode=block"
+		X-Robots-Tag none
+		Content-Security-Policy "frame-ancestors 'self'"
+		X-Frame-Options DENY
+		Referrer-Policy same-origin
+	}
+
+	@singleLine not path /matcher
+	respond @singleLine "Awesome."
+
+	import blocking
+
+	file_server
 }
