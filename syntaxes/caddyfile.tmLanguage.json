@@ -17,11 +17,11 @@
 			"end": "\n",
 
 			"beginCaptures": {
-				"0": { "name": "keyword.Caddyfile" }
+				"0": { "name": "support.constant.Caddyfile" }
 			},
 
 			"endCaptures": {
-				"0": { "name": "keyword.Caddyfile"}
+				"0": { "name": "support.constant.Caddyfile"}
 			},
 
 			"patterns": [
@@ -92,12 +92,6 @@
 			"comment": "import: the only directive allowed outside a block",
 			"match": "^\\s*import",
 			"name": "support.type.Caddyfile"
-		},
-
-		{
-			"comment": "lines that end in a comma are still part of the main directive, there may be a better way of doing this but I couol",
-			"match": "(^.*)(,\\s+$)",
-			"name": "support.class.Caddyfile"
 		}
 	],
 

@@ -3,10 +3,12 @@ import cp = require("child_process");
 import kill = require("tree-kill");
 import path = require("path");
 import vscode = require("vscode");
+import fs = require("fs");
 
 export class CaddyfileDocumentFormattingEditProvider implements vscode.DocumentFormattingEditProvider {
     public provideDocumentFormattingEdits(document: vscode.TextDocument, options: vscode.FormattingOptions, token: vscode.CancellationToken): vscode.ProviderResult<vscode.TextEdit[]> {
         if (vscode.window.visibleTextEditors.every((e) => e.document.fileName !== document.fileName)) {
+            console.log("wow!");
             return [];
         }
 
@@ -24,7 +26,7 @@ export class CaddyfileDocumentFormattingEditProvider implements vscode.DocumentF
     private runFormatter(document: vscode.TextDocument, token: vscode.CancellationToken): Thenable<vscode.TextEdit[]> {
         const executablePath: string = vscode.workspace.getConfiguration("caddyfile").get("executable");
 
-        return new Promise<vscode.TextEdit[]>((resolve, reject) => {
+        return new Promise<vscode.TextEdit[]>(async (resolve, reject) => {
             let executable: string;
             if (executablePath !== undefined && executablePath !== null && executablePath !== "") {
                 if (!path.isAbsolute(executablePath)) {
@@ -42,7 +44,7 @@ export class CaddyfileDocumentFormattingEditProvider implements vscode.DocumentF
             let stderr = "";
 
             // Use spawn instead of exec to avoid maxBufferExceeded error
-            const p = cp.spawn(executable, [ "fmt", document.fileName ], { cwd });
+            const p = cp.spawn(executable, [ "fmt", "-stdin" ], { cwd });
             token.onCancellationRequested(() => !p.killed && killProcessTree(p));
 
             p.stdout.setEncoding("utf8");
@@ -60,6 +62,8 @@ export class CaddyfileDocumentFormattingEditProvider implements vscode.DocumentF
                 if (code !== 0) {
                     return reject(stderr);
                 }
+
+                console.log(stdout);
 
                 // Return the complete file content in the edit.
                 // VS Code will calculate minimal edits to be applied
