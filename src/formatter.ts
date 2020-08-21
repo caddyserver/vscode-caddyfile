@@ -8,7 +8,6 @@ import fs = require("fs");
 export class CaddyfileDocumentFormattingEditProvider implements vscode.DocumentFormattingEditProvider {
     public provideDocumentFormattingEdits(document: vscode.TextDocument, options: vscode.FormattingOptions, token: vscode.CancellationToken): vscode.ProviderResult<vscode.TextEdit[]> {
         if (vscode.window.visibleTextEditors.every((e) => e.document.fileName !== document.fileName)) {
-            console.log("wow!");
             return [];
         }
 
@@ -62,8 +61,6 @@ export class CaddyfileDocumentFormattingEditProvider implements vscode.DocumentF
                 if (code !== 0) {
                     return reject(stderr);
                 }
-
-                console.log(stdout);
 
                 // Return the complete file content in the edit.
                 // VS Code will calculate minimal edits to be applied
