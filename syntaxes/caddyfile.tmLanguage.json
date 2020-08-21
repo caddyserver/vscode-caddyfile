@@ -137,7 +137,7 @@
 			"patterns": [
 				{
 					"name": "entity.name.function.Caddyfile",
-					"match": "^\\s*[a-zA-Z_-]+"
+					"match": "^\\s*[a-zA-Z_\\-+]+"
 				}
 			]
 		},
