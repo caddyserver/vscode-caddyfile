@@ -4,8 +4,16 @@ All notable changes to the `vscode-caddyfile-support` project will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+SoonTM
+
+## [v0.0.3] - 2020-08-30
 ### Fixed
 - `localhost` not being treated as a domain ([#3](https://github.com/matthewpi/vscode-caddyfile-support/issues/3#issuecomment-678527482))
+- Domains not being properly highlighted after matchers ([#4](https://github.com/matthewpi/vscode-caddyfile-support/issues/4))
+- `:<PORT>` not being highlighted as a domain ([#4](https://github.com/matthewpi/vscode-caddyfile-support/issues/4))
+
+### Changed
+- Format command is now `caddy fmt -` instead of `caddy fmt -stdin` ([ref](https://github.com/caddyserver/caddy/pull/3680#discussion_r475123239))
 
 ## [v0.0.2] - 2020-08-21
 ### Added

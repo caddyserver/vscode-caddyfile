@@ -4,19 +4,12 @@
         "outDir": "out",
         "sourceMap": true,
         "target": "es6",
-
-        "lib": [
-            "es2015"
-        ],
-
-        //"strict": true,
+        "lib": [ "es2015" ],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "alwaysStrict": true,
         "strictBindCallApply": true,
         "strictFunctionTypes": true,
-        //"strictNullChecks": true,
-        //"strictPropertyInitialization": true,
     },
 
     "exclude": [

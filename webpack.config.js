@@ -2,7 +2,7 @@
 
 const path = require("path");
 
-/**@type {import('webpack').Configuration}*/
+/** @type {import("webpack").Configuration} */
 const config = {
     target: "node",
     devtool: "source-map",
