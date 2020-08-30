@@ -41,7 +41,7 @@ export class CaddyfileDocumentFormattingEditProvider implements vscode.DocumentF
             let stderr = "";
 
             // Use spawn instead of exec to avoid maxBufferExceeded error
-            const p = spawn(executable, [ "fmt", "-stdin" ], { cwd });
+            const p = spawn(executable, [ "fmt", "-" ], { cwd });
             token.onCancellationRequested(() => !p.killed && killProcessTree(p));
 
             p.stdout.setEncoding("utf8");
