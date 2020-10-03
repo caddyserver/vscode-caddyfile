@@ -16,10 +16,10 @@ This is essentially an updated version of [`vscode-caddyfile-syntax`](https://gi
 - Support for Caddyfile v2
 
 ## Requirements
-- `caddy` executable (required for Automatic Formatting and Linting)
+- [caddy v2.2.0](https://github.com/caddyserver/caddy/releases/tag/v2.2.0) or [later](https://github.com/caddyserver/caddy/releases/latest) (required for Automatic Formatting)
 
 ## Known Issues
-- Automatic formatting is broken until a [PR for caddy](https://github.com/caddyserver/caddy/pull/3680) is merged and released.
+- None
 
 ## Coming Soon
 - IntelliSense Support
