@@ -22,7 +22,11 @@
 			"patterns": [
 				{
 					"name": "comment.line.Caddyfile",
-					"match": "#.*"
+					"match": "\\s#.*"
+				},
+				{
+					"name": "comment.line.Caddyfile",
+					"match": "^#.*"
 				}
 			]
 		},
@@ -77,9 +81,9 @@
 		"domains": {
 			"patterns": [
 				{
-					"comment": "Domains",
+					"comment": "Domains and URLs",
 					"name": "keyword.control.caddyfile",
-					"match": "(https?:\/\/)*[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\\.[a-zA-Z]{2,})+(:[0-9]+)*"
+					"match": "(https?:\/\/)*[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\\.[a-zA-Z]{2,})+(:[0-9]+)*\\S*"
 				},
 				{
 					"comment": "localhost",
@@ -121,7 +125,7 @@
 					"patterns": [
 						{
 							"name": "support.constant.Caddyfile",
-							"match": "^\\s*(debug|https?_port|default_sni|order|experimental_http3|storage|acme_ca|acme_ca_root|email|admin|on_demand_tls|local_certs|key_type|auto_https)"
+							"match": "^\\s*(debug|https?_port|default_sni|order|experimental_http3|storage|acme_ca_root|acme_ca|email|admin|on_demand_tls|local_certs|key_type|auto_https)"
 						}
 					]
 				}

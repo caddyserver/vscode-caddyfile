@@ -1,0 +1,3 @@
+example.localhost {
+	redir https://example.com/#/about 302
+}
