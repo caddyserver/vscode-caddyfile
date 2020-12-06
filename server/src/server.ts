@@ -98,24 +98,6 @@ connection.onDidChangeConfiguration((change: DidChangeConfigurationParams) => {
 	documents.all().forEach(validateTextDocument);
 });
 
-function getDocumentSettings(resource: string): Thenable<ExampleSettings> {
-	if (!hasConfigurationCapability) {
-		return Promise.resolve(globalSettings);
-	}
-
-	let result = documentSettings.get(resource);
-	if (!result) {
-		result = connection.workspace.getConfiguration({
-			scopeUri: resource,
-			section: "caddyfileLanguageServer",
-		});
-
-		documentSettings.set(resource, result);
-	}
-
-	return result;
-};
-
 documents.onDidClose((e: TextDocumentChangeEvent<TextDocument>) => {
 	documentSettings.delete(e.document.uri);
 });
@@ -146,6 +128,10 @@ async function validateTextDocument(document: TextDocument): Promise<void> {
 				option = sections[0];
 			} else {
 				option = trimmed;
+			}
+
+			if (option === "") {
+				return;
 			}
 
 			const start = line.indexOf(trimmed.charAt(0));

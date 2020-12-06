@@ -20,6 +20,10 @@ interface Range {
 };
 
 export function getGlobalOptionsPosition(document: TextDocument): Range|null {
+	if (!hasGlobalOptions(document)) {
+		return null;
+	}
+
 	// Start at line 1 and work towards the end of the file, we are trying to find the
 	// first `}\n` that closes the global options block.
 	for (let i = 1; i < document.lineCount; i++) {
