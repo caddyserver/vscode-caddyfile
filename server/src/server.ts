@@ -150,6 +150,11 @@ async function validateTextDocument(document: TextDocument): Promise<void> {
 		const map = new Map();
 		options.forEach(a => map.set(a.name, (map.get(a.name) || 0) + 1));
 		options.filter(a => map.get(a.name) > 1).forEach((a: Option) => {
+			// servers is the only option that would require having duplicates.
+			if (a.name === "servers") {
+				return;
+			}
+
 			diagnostics.push({
 				severity: DiagnosticSeverity.Warning,
 				range: a.range,
