@@ -14,16 +14,13 @@ This is essentially an updated version of [`vscode-caddyfile-syntax`](https://gi
 - Syntax Highlighting
 - Automatic Formatting (supports Format on Save)
 - Support for Caddyfile v2
+- Basic Language Server with suggestions and descriptions
 
 ## Requirements
 - [caddy v2.2.0](https://github.com/caddyserver/caddy/releases/tag/v2.2.0) or [later](https://github.com/caddyserver/caddy/releases/latest) (required for Automatic Formatting)
 
 ## Known Issues
 - None
-
-## Coming Soon
-- IntelliSense Support
-- Automatic Linting (using `caddy validate`)
 
 ## Changelog
 See [CHANGELOG.md](https://github.com/matthewpi/vscode-caddyfile-support/blob/master/CHANGELOG.md)

@@ -2,7 +2,7 @@
     "name": "caddyfile-support",
     "displayName": "Caddyfile Support",
     "description": "Adds support for Caddyfile syntax highlighting and automatic formatting.",
-    "version": "0.0.4",
+    "version": "0.1.0",
     "license": "MIT",
     "publisher": "matthewpi",
     "private": true,
