@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [v0.1.1] - 2020-12-06
+### Fixed
+- language-server: fix "Duplicated global option" inspection ([#7](https://github.com/matthewpi/vscode-caddyfile-support/issues/7))
+
+### Changed
+- language-server: update global option descriptions and suggestions ([ba726e5](https://github.com/matthewpi/vscode-caddyfile-support/commit/ba726e5324cae28e1ba4ceafa96bdfe1976423ce))
+
 ## [v0.1.0] - 2020-12-06
 ### Added
 - Language Server ([#6](https://github.com/matthewpi/vscode-caddyfile-support/pull/6))
