@@ -8,10 +8,10 @@ assignees: ''
 ---
 
 **System Information**
-*  Operating System: 
-* Extension Version: 
-*    VSCode Version: 
-*   `caddy` Version: 
+* Operating System: a
+* Extension Version: a
+* VSCode Version: a
+* `caddy` Version: a
 
 **Describe the bug**
 A clear and concise description of what the bug is.
