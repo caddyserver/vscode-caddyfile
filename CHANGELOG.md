@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [v0.1.2] - 2021-05-11
+### Changed
+- yarn: upgrade ([d8fc677](https://github.com/matthewpi/vscode-caddyfile-support/commit/d8fc67706a938c53738a9de666ca31b6544f1dd9))
+
+### DevOps
+- gh(workflows): add deploy workflow ([89e6c76](https://github.com/matthewpi/vscode-caddyfile-support/commit/89e6c7654525e81982a4f2ac9b4608b5585b327c))
+
 ## [v0.1.1] - 2020-12-06
 ### Fixed
 - language-server: fix "Duplicated global option" inspection ([#7](https://github.com/matthewpi/vscode-caddyfile-support/issues/7))

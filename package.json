@@ -2,7 +2,7 @@
     "name": "caddyfile-support",
     "displayName": "Caddyfile Support",
     "description": "Rich Caddyfile support for Visual Studio Code",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "license": "MIT",
     "publisher": "matthewpi",
     "private": true,
