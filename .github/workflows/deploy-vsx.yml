@@ -3,35 +3,37 @@ name: Deploy
 on:
   push:
     tags:
-      - "*"
+      - '*'
 
 jobs:
   deploy:
+    name: Deploy
     runs-on: ubuntu-20.04
+
     steps:
-      - name: Install Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14
 
-      - name: Code Checkout
-        uses: actions/checkout@v2
+    - name: Code Checkout
+      uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+    - name: Install Dependencies
+      run: yarn install --frozen-lockfile
 
-      - name: Publish to OpenVSX
-        id: publish
-        uses: HaaLeo/publish-vscode-extension@v0
-        with:
-          pat: ${{ secrets.OPEN_VSX_TOKEN }}
-          yarn: true
+    - name: Publish to OpenVSX
+      id: publish
+      uses: HaaLeo/publish-vscode-extension@v0
+      with:
+        pat: ${{ secrets.OPEN_VSX_TOKEN }}
+        yarn: true
 
-      - name: Publish to Visual Studio Marketplace
-        uses: HaaLeo/publish-vscode-extension@v0
-        with:
-          pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
-          registryUrl: https://marketplace.visualstudio.com
-          extensionFile: ${{ steps.publish.outputs.vsixPath }}
-          packagePath: ''
-          yarn: true
+    - name: Publish to Visual Studio Marketplace
+      uses: HaaLeo/publish-vscode-extension@v0
+      with:
+        pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
+        registryUrl: https://marketplace.visualstudio.com
+        extensionFile: ${{ steps.publish.outputs.vsixPath }}
+        packagePath: ''
+        yarn: true
