@@ -185,6 +185,16 @@
 					"end": "\\}",
 
 					"patterns": [
+						{ "include": "#block_content" }
+					]
+				}
+			]
+		},
+
+		"block_content": {
+			"patterns": [
+				{
+					"patterns": [
 						{ "include": "#comments" },
 						{ "include": "#strings" },
 						{ "include": "#domains" },
