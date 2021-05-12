@@ -5,6 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [v0.2.0] - 2021-05-12
+### Added
+- Markdown Support ([#19](https://github.com/matthewpi/vscode-caddyfile-support/issues/19))
+- Highlighting for Content-Types ([#19](https://github.com/matthewpi/vscode-caddyfile-support/issues/19))
+
+### Fixed
+- Comments not always highlighting in server blocks ([#19](https://github.com/matthewpi/vscode-caddyfile-support/issues/19))
+- Domains not being properly highlighted ([#19](https://github.com/matthewpi/vscode-caddyfile-support/issues/19))
+
 ## [v0.1.2] - 2021-05-11
 ### Changed
 - yarn: upgrade ([d8fc677](https://github.com/matthewpi/vscode-caddyfile-support/commit/d8fc67706a938c53738a9de666ca31b6544f1dd9))
