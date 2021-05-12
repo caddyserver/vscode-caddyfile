@@ -2,7 +2,7 @@
 	auto_https disable_redirects
 }
 
-<domain>:443 {
+example.com:443 {
 	# Application Root
 	root * /var/www/pterodactyl/
 

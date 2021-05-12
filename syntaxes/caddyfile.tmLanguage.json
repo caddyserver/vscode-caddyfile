@@ -60,7 +60,7 @@
 		"path": {
 			"patterns": [
 				{
-					"name": "variable.other.property.caddyfile",
+					"name": "keyword.control.caddyfile",
 					"match": "(unix\/)*\/[a-zA-Z0-9_\\-./*]+"
 				},
 				{
@@ -83,7 +83,7 @@
 				{
 					"comment": "Domains and URLs",
 					"name": "keyword.control.caddyfile",
-					"match": "(https?:\/\/)*[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\\.[a-zA-Z]{2,})+(:[0-9]+)*\\S*"
+					"match": "(https?:\/\/)*[a-zA-Z0-9][a-zA-Z0-9-]*(?:\\.[a-zA-Z]{2,})+(:[0-9]+)*\\S*"
 				},
 				{
 					"comment": "localhost",
