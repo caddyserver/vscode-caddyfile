@@ -81,9 +81,9 @@
 		"domains": {
 			"patterns": [
 				{
-					"comment": "Domains and URLs",
+					"comment": "Domains and URLs - https://regexr.com/5spn6",
 					"name": "keyword.control.caddyfile",
-					"match": "(https?:\/\/)*[a-zA-Z0-9][a-zA-Z0-9-]*(?:\\.[a-zA-Z]{2,})+(:[0-9]+)*\\S*"
+					"match": "(https?:\/\/)*[a-z0-9-\\*]*(?:\\.[a-zA-Z]{2,})+(:[0-9]+)*\\S*"
 				},
 				{
 					"comment": "localhost",
@@ -163,6 +163,17 @@
 				{
 					"name": "entity.name.function.Caddyfile",
 					"match": "^\\s*[a-zA-Z_\\-+]+"
+				},
+				{ "include": "#content_types" }
+			]
+		},
+
+		"content_types": {
+			"patterns": [
+				{
+					"comment": "Content Types",
+					"name": "variable.other.property.caddyfile",
+					"match": "(application|audio|example|font|image|message|model|multipart|text|video)\/[a-zA-Z0-9*+\\-.]+;* *[a-zA-Z0-9=\\-]*"
 				}
 			]
 		},
