@@ -78,6 +78,16 @@
                 "language": "caddyfile",
                 "scopeName": "source.Caddyfile",
                 "path": "./syntaxes/caddyfile.tmLanguage.json"
+            },
+            {
+                "scopeName": "source.markdown.caddy.codeblock",
+                "path": "./syntaxes/caddy-markdown.tmLanguage.json",
+                "injectTo": [
+                    "text.html.markdown"
+                ],
+                "embeddedLanguages": {
+                    "meta.embedded.block.caddy": "caddyfile"
+                }
             }
         ],
         "configurationDefaults": {
