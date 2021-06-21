@@ -38,7 +38,7 @@
         "vscode-languageclient": "^6.1.4"
     },
     "devDependencies": {
-        "@types/node": "^15.12.3",
+        "@types/node": "^15.12.4",
         "@types/vscode": "^1.57.0",
         "ts-loader": "^9.2.3",
         "tslint": "^6.1.3",
