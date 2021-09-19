@@ -26,11 +26,6 @@ export class CaddyfileDocumentFormattingEditProvider implements vscode.DocumentF
         return new Promise<vscode.TextEdit[]>((resolve, reject) => {
             let executable: string;
             if (executablePath !== undefined && executablePath !== null && executablePath !== "") {
-                if (!path.isAbsolute(executablePath)) {
-                    vscode.window.showInformationMessage("Invalid executable path for caddy.");
-                    return reject();
-                }
-
                 executable = executablePath;
             } else {
                 executable = "caddy";
