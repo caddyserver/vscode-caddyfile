@@ -1010,10 +1010,10 @@ to-regex-range@^5.0.1:
 "tree-kill@file:third_party/tree-kill":
   version "1.2.2"
 
-ts-loader@^9.2.5:
-  version "9.2.5"
-  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-9.2.5.tgz#127733a5e9243bf6dafcb8aa3b8a266d8041dca9"
-  integrity sha512-al/ATFEffybdRMUIr5zMEWQdVnCGMUA9d3fXJ8dBVvBlzytPvIszoG9kZoR+94k6/i293RnVOXwMaWbXhNy9pQ==
+ts-loader@^9.2.7:
+  version "9.2.7"
+  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-9.2.7.tgz#948654099ca96992b62ec47bd9cee5632006e101"
+  integrity sha512-Fxh44mKli9QezgbdCXkEJWxnedQ0ead7DXTH+lfXEPedu+Y9EtMJ2aQ9G3Dj1j7Q612E8931rww8NDZha4Tibg==
   dependencies:
     chalk "^4.1.0"
     enhanced-resolve "^5.0.0"
