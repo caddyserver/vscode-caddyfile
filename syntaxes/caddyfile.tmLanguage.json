@@ -123,6 +123,7 @@
 					},
 
 					"patterns": [
+						{ "include": "#comments" },
 						{
 							"name": "support.constant.Caddyfile",
 							"match": "^\\s*(debug|https?_port|default_bind|order|storage|storage_clean_interval|renew_interval|ocsp_interval|admin|log|grace_period|shutdown_delay|auto_https|email|default_sni|local_certs|skip_install_trust|acme_ca|acme_ca_root|acme_eab|acme_dns|on_demand_tls|key_type|cert_issuer|ocsp_stapling|preferred_chains|servers|pki|events)"
