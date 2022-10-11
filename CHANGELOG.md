@@ -4,11 +4,16 @@ All notable changes to the `vscode-caddyfile-support` project will be documented
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v0.2.1] - Unreleased
+## [v0.2.1] - 2022-10-11
 
 ### Fixed
 
-- .
+- Match additional file names for highlighting by default ([#231](https://github.com/matthewpi/vscode-caddyfile-support/issues/231))
+- Comments not being highlighted properly ([d2dbe76](https://github.com/matthewpi/vscode-caddyfile-support/commit/d2dbe7637142124f3f3f865ee562cf8467c516ca))
+
+### Changed
+
+- Disable `duplicate global option` inspection ([ee91c9a](https://github.com/matthewpi/vscode-caddyfile-support/commit/ee91c9af970d6fea298cfd4bcf877413656f1714))
 
 ## [v0.2.0] - 2021-05-12
 
