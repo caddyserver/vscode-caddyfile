@@ -12,12 +12,12 @@ jobs:
 
     steps:
     - name: Install Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
-        node-version: 14
+        node-version: 16
 
     - name: Code Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
@@ -35,5 +35,5 @@ jobs:
         pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
         registryUrl: https://marketplace.visualstudio.com
         extensionFile: ${{ steps.publish.outputs.vsixPath }}
-        packagePath: ''
+        packagePath: ""
         yarn: true

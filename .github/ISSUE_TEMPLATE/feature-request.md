@@ -1,9 +1,9 @@
 ---
 name: Feature Request
 about: Request a new feature to be added
-title: ''
+title: ""
 labels: "\U0001F6E0 type/feature request"
-assignees: ''
+assignees: ""
 
 ---
 
