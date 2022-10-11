@@ -1,5 +1,66 @@
-out/
-dist/
-node_modules/
-.vscode-test/
+#------------------#
+# IDEs and Editors #
+#------------------#
+
+# Jetbrains
+.idea
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-*
+
+# Visual Studio Code
+.vscode
+
+# VIM
+.*.sw[a-p]
+
+#-------------------#
+#     Languages     #
+#-------------------#
+
+# Node.js
+.npm
+node_modules
+npm-debug.log
+
+.cache
+.eslintcache
+
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+.yarn-integrity
+yarn-debug.log
+yarn-error.log
+
+# Turbo
+.turbo
+
+#-------------------#
+# Operating Systems #
+#-------------------#
+
+# External Drives
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+
+# Mac OS
 .DS_Store
+
+#-------------------#
+#   Project Files   #
+#-------------------#
+
+.vscode-test
+dist
+out
