@@ -20,7 +20,7 @@
 					"background": {
 						"activeOnStart": true,
 						"beginsPattern": ".",
-						"endsPattern": "^@matthewpi\\/.:dev: \\[watch\\] build finished"
+						"endsPattern": "^@matthewpi\\/(.*):dev: \\[watch\\] build finished"
 					}
 				}
 			]
