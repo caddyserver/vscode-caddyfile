@@ -5,7 +5,7 @@
     "version": "0.2.1",
     "license": "MIT",
     "private": true,
-	"main": "./packages/client/dist/index.cjs",
+    "main": "./packages/client/dist/index.cjs",
     "packageManager": "yarn@3.2.4",
     "categories": [
         "Programming Languages",
@@ -40,10 +40,6 @@
         "lint": "turbo run lint",
         "clean": "turbo run clean && rimraf node_modules/.cache"
     },
-    "dependencies": {
-        "tree-kill": "file:third_party/tree-kill",
-        "vscode-languageclient": "6.1.4"
-    },
     "devDependencies": {
         "prettier": "2.7.1",
         "rimraf": "3.0.2",
@@ -66,9 +62,9 @@
                 "id": "caddyfile",
                 "configuration": "./language-configuration.json",
                 "aliases": [
-					"Caddyfile",
+                    "Caddyfile",
                     "Caddy",
-					"caddyfile",
+                    "caddyfile",
                     "caddy"
                 ],
                 "extensions": [

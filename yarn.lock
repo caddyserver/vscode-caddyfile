@@ -47,10 +47,8 @@ __metadata:
   dependencies:
     prettier: 2.7.1
     rimraf: 3.0.2
-    tree-kill: "file:third_party/tree-kill"
     turbo: 1.5.6
     typescript: 4.8.4
-    vscode-languageclient: 6.1.4
   languageName: unknown
   linkType: soft
 
@@ -1762,15 +1760,6 @@ __metadata:
   dependencies:
     punycode: ^2.1.0
   checksum: 96d4ed46bc161db75dbf9247a236ea0bfcaf5758baae6749e92afab0bc5a09cb59af21788ede7e55080f2bf02dce3e4a8f2a484cc45164e29f4b5e68f7cbcc1a
-  languageName: node
-  linkType: hard
-
-"tree-kill@file:third_party/tree-kill::locator=%40matthewpi%2Fcaddyfile-support%40workspace%3A.":
-  version: 1.2.2
-  resolution: "tree-kill@file:third_party/tree-kill#third_party/tree-kill::hash=e55724&locator=%40matthewpi%2Fcaddyfile-support%40workspace%3A."
-  bin:
-    tree-kill: cli.js
-  checksum: 17eeb223276bd330d8d22a04aaf3c7b466ea2a782ac3ad7896e0ba128382771b9815aa91abb1b23fa5a48d02a4acb9b4c3f7d962f5f4caa209fb16aaa8fcf483
   languageName: node
   linkType: hard
 
