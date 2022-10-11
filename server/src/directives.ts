@@ -1,5 +1,5 @@
 interface Descriptions {
-	[key: string]: string
+	[key: string]: string;
 }
 
 export const descriptions: Descriptions = {
@@ -19,8 +19,6 @@ root [<matcher>] <path>
 - **&lt;path&gt;** is the path to use for the site root.
 
 Note that the \`<path>\` argument could be confused by the parser as a [matcher token](https://caddyserver.com/docs/caddyfile/matchers#syntax) if the it begins with \`/\`.  To disambiguate, specify a wildcard matcher token (\`*\`).  See examples below.`,
-
-
 
 	// https://caddyserver.com/docs/caddyfile/directives/header
 	header: `Manipulates HTTP header fields on the response.  It can set, add, and delete header values, or perform replacements using regular expressions.
@@ -47,8 +45,6 @@ header [<matcher>] [[+|-]<field> [<value>|<find>] [<replace>]] {
 
 For multiple header manipulations, you can open a block and specify one manipulation per line in the same way.`,
 
-
-
 	// https://caddyserver.com/docs/caddyfile/directives/redir
 	redir: `Issues an HTTP redirect to the client.
 
@@ -67,8 +63,6 @@ redir [<matcher>] <to> [<code>]
 	- \`permanent\` for a permanent redirect (301)
 	- \`html\` to use an HTML document to perform the redirect (useful for redirecting browsers but not API clients)`,
 
-
-
 	// https://caddyserver.com/docs/caddyfile/directives/rewrite
 	rewrite: `Rewrites the request internally.  A rewrite changes some or all of the request URI.
 
@@ -83,8 +77,6 @@ rewrite [<matcher>] <to>
 \`\`\`
 
 - **&lt;to&gt;** is the URI to set on the request.  Only designated parts will be replaced.  The URI path is any substring that comes before \`?\`.  If \`?\` is omitted, then the whole token is considered to be the path.`,
-
-
 
 	// https://caddyserver.com/docs/caddyfile/directives/uri
 	uri: `Manipulates a request's URI.  It can strip path prefix/suffix or replace substrings on the whole URI.
@@ -107,8 +99,6 @@ uri [<matcher>] strip_prefix|strip_suffix|replace \
 - **&lt;replacement&gt;** is the replacement string (only valid with \`replace\`).
 - **&lt;limit&gt;** is an optional limit to the maximum number of replacements (only valid with \`replace\`).`,
 
-
-
 	// https://caddyserver.com/docs/caddyfile/directives/try_files
 	try_files: `Rewrites the request URI path to the first of the listed files which exists in the site root.  If no files match, no rewrite is performed.
 
@@ -119,8 +109,6 @@ try_files <files...>
 \`\`\`
 
 - **&lt;files...&gt;** is the list of files to try.  The URI will be rewritten to the first one that exists.  To match directories, append a trailing forward slash \`/\` to the path.  All file paths are relative to the site [root](https://caddyserver.com/docs/caddyfile/directives/root).  Each argument may also contain a query string, in which case the query string will also be changed if it matches that particular file.`,
-
-
 
 	// https://caddyserver.com/docs/caddyfile/directives/basicauth
 	basicauth: `Enables HTTP Basic Authentication, which can be used to protect directories and files with a username and hashed password.
@@ -146,8 +134,6 @@ basicauth [<matcher>] [<hash_algorithm> [<realm>]] {
 - **&lt;hashed_password_base64&gt;** is the base-64 encoding of the hashed password.
 - **&lt;salt_base64&gt;** is the base-64 encoding of the password salt, if an external salt is required.`,
 
-
-
 	// https://caddyserver.com/docs/caddyfile/directives/request_header
 	request_header: `Manipulates HTTP header fields on the request.  It can set, add, and delete header values, or perform replacements using regular expressions.
 
@@ -161,8 +147,6 @@ request_header [<matcher>] [[+|-]<field> [<value>|<find>] [<replace>]]
 - **&lt;value&gt;** is the header field value, if adding or setting a field.
 - **&lt;find&gt;** is the substring or regular expression to search for.
 - **&lt;replace&gt;** is the replacement value; required if performing a search-and-replace.`,
-
-
 
 	// https://caddyserver.com/docs/caddyfile/directives/encode
 	encode: `Encodes responses using the configured encoding(s).  A typical use for encoding is compression.
@@ -179,8 +163,6 @@ encode [<matcher>] <formats...> {
 - **&lt;formats...&gt;** is the list of encoding formats to enable.
 - **gzip** enables Gzip compression, optionally at the specified level.
 - **zstd** enables Zstandard compression.`,
-
-
 
 	// https://caddyserver.com/docs/caddyfile/directives/templates
 	templates: `Executes the response body as a [template](https://caddyserver.com/docs/modules/http.handlers.templates) document.  Templates provide functional primitives for making simple dynamic pages.  Features include HTTP subrequests, HTML file includes, Markdown rendering, JSON parsing, basic data structures, randomness, time, and more.
@@ -199,8 +181,6 @@ templates [<matcher>] {
 - **between** are the opening and closing delimiters for template actions.  Default: \`{{printf "{{ }}"}}\`.  You can change them if they interfere with the rest of your document.
 - **root** is the site root, when using functions that access the file system.`,
 
-
-
 	// https://caddyserver.com/docs/caddyfile/directives/handle
 	handle: `Evaluates a group of directives mutually exclusively from other \`handle\` blocks at the same level of nesting.
 
@@ -215,8 +195,6 @@ handle [<matcher>] {
 \`\`\`
 
 - **&lt;directives...&gt;** is a list of HTTP handler directives or directive blocks, one per line, just like would be used outside of a handle block.`,
-
-
 
 	// https://caddyserver.com/docs/caddyfile/directives/handle_path
 	handle_path: `Same as the [\`handle\` directive](https://caddyserver.com/docs/caddyfile/directives/handle), but implicitly strips the matched path prefix.
@@ -235,8 +213,6 @@ handle_path <path_matcher> {
 
 Note that only a single path matcher is accepted and required; you cannot use other kinds of matchers with handle_path.`,
 
-
-
 	// https://caddyserver.com/docs/caddyfile/directives/route
 	route: `Evaluates a group of directives literally and as a single unit.
 
@@ -253,8 +229,6 @@ route [<matcher>] {
 \`\`\`
 
 - **&lt;directives...&gt;** is a list of directives or directive blocks, one per line, just like outside of a route block; except these directives will not be reordered.  Only HTTP handler directives can be used.`,
-
-
 
 	// https://caddyserver.com/docs/caddyfile/directives/respond
 	respond: `Writes a hard-coded/static response to the client.
@@ -275,8 +249,6 @@ respond [<matcher>] <status>|<body> [<status>] {
 
 To clarify, the first non-matcher argument can be either a 3-digit status code or a response body string.  If it is a body, the next argument can be the status code.`,
 
-
-
 	// https://caddyserver.com/docs/caddyfile/directives/metrics
 	metrics: `Configures a Prometheus metrics exposition endpoint so the gathered metrics can
 be exposed for scraping.
@@ -295,8 +267,6 @@ See also [Monitoring Caddy with Prometheus metrics](https://caddyserver.com/docs
 \`\`\`caddyfile
 metrics [<matcher>]
 \`\`\``,
-
-
 
 	// https://caddyserver.com/docs/caddyfile/directives/reverse_proxy
 	reverse_proxy: `Proxies requests to one or more backends with configurable transport, load balancing, health checking, header manipulation, and buffering options.
@@ -499,8 +469,6 @@ transport fastcgi {
 - **read_timeout** is how long to wait when reading from the FastCGI server.  Accepts [duration value](https://caddyserver.com/docs/conventions#durations).  Default: no timeout.
 - **write_timeout** is how long to wait when sending to the FastCGI server.  Accepts [duration value](https://caddyserver.com/docs/conventions#durations).  Default: no timeout.`,
 
-
-
 	// https://caddyserver.com/docs/caddyfile/directives/php_fastcgi
 	php_fastcgi: `An opinionated directive that proxies requests to a PHP FastCGI server such as php-fpm.
 
@@ -531,8 +499,6 @@ php_fastcgi [<matcher>] <php-fpm_gateways...> {
 - **env** sets an extra environment variable to the given value.  Can be specified more than once for multiple environment variables.
 - **index** specifies the filename to treat as the directory index file.  This affects the file matcher in the [expanded form](https://caddyserver.com/docs/caddyfile/directives/php_fastcgi#expanded-form).  Default: \`index.php\``,
 
-
-
 	// https://caddyserver.com/docs/caddyfile/directives/file_server
 	file_server: `A static file server.  It works by appending the request's URI path to the [site's root path](https://caddyserver.com/docs/caddyfile/directives/root).  By default, it enforces canonical URIs; if necessary, requests to directories will be redirected to have a trailing forward slash, and requests to files will be redirected to strip the trailing slash.
 
@@ -554,8 +520,6 @@ file_server [<matcher>] [browse] {
 - **hide** is a list of files or folders to hide; if requested, the file server will pretend they do not exist.  Accepts placeholders and glob patterns.  Note that these are _file system_ paths, NOT request paths.  In other words, relative paths use the current working directory as a base, NOT the site root; and all paths are transformed to their absolute form before comparisons (if possible).  Specifying a file name or pattern without a path separator will hide all files with a matching name regardless of its location; otherwise, a path prefix match will be attempted, and then a globular match.  Since this is a Caddyfile config, the active configuration file(s) will be added by default.
 - **index** is a list of filenames to look for as index files.  Default: \`index.html index.txt\`
 - **&lt;template_file&gt;** is an optional custom template file to use for directory listings.  Defaults to the template that can be found [here in the source code](https://github.com/caddyserver/caddy/blob/master/modules/caddyhttp/fileserver/browsetpl.go).`,
-
-
 
 	// https://caddyserver.com/docs/caddyfile/directives/acme_server
 	acme_server: `An embedded [ACME protocol](https://tools.ietf.org/html/rfc8555) server handler.  This allows a Caddy instance to issue certificates for any other ACME-compatible software (including other Caddy instances).

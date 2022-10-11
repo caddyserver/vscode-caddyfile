@@ -17,17 +17,12 @@ import {
 	HoverParams,
 	DidChangeConfigurationParams,
 	Range,
-} from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
+} from 'vscode-languageserver';
+import { TextDocument } from 'vscode-languageserver-textdocument';
 
-import {
-	descriptions as directiveDescriptions,
-} from "./directives";
-import {
-	completions as globalOptionCompletions,
-	descriptions as globalOptionDescriptions,
-} from "./globalOptions";
-import { getGlobalOptionsPosition, isInGlobalOptions } from "./lexer";
+import { descriptions as directiveDescriptions } from './directives';
+import { completions as globalOptionCompletions, descriptions as globalOptionDescriptions } from './globalOptions';
+import { getGlobalOptionsPosition, isInGlobalOptions } from './lexer';
 
 const connection = createConnection(ProposedFeatures.all);
 
@@ -73,15 +68,15 @@ connection.onInitialized(() => {
 	}
 
 	if (hasWorkspaceFolderCapability) {
-		connection.workspace.onDidChangeWorkspaceFolders((_event) => {
-			connection.console.log("Workspace folder change event received.");
+		connection.workspace.onDidChangeWorkspaceFolders(_event => {
+			connection.console.log('Workspace folder change event received.');
 		});
 	}
 });
 
 interface ExampleSettings {
 	maxNumberOfProblems: number;
-};
+}
 
 const defaultSettings: ExampleSettings = { maxNumberOfProblems: 1000 };
 let globalSettings: ExampleSettings = defaultSettings;
@@ -109,7 +104,7 @@ documents.onDidChangeContent((change: TextDocumentChangeEvent<TextDocument>) => 
 interface Option {
 	name: string;
 	range: Range;
-};
+}
 
 async function validateTextDocument(document: TextDocument): Promise<void> {
 	const diagnostics: Diagnostic[] = [];
@@ -123,14 +118,14 @@ async function validateTextDocument(document: TextDocument): Promise<void> {
 			const trimmed = line.trim();
 			let option: string;
 
-			if (trimmed.includes(" ")) {
-				const sections = trimmed.split(" ");
+			if (trimmed.includes(' ')) {
+				const sections = trimmed.split(' ');
 				option = sections[0];
 			} else {
 				option = trimmed;
 			}
 
-			if (option === "") {
+			if (option === '') {
 				return;
 			}
 
@@ -149,19 +144,21 @@ async function validateTextDocument(document: TextDocument): Promise<void> {
 		// Fancy way of only getting duplicate directives.
 		const map = new Map();
 		options.forEach(a => map.set(a.name, (map.get(a.name) || 0) + 1));
-		options.filter(a => map.get(a.name) > 1).forEach((a: Option) => {
-			// servers is the only option that would require having duplicates.
-			if (a.name === "servers") {
-				return;
-			}
+		options
+			.filter(a => map.get(a.name) > 1)
+			.forEach((a: Option) => {
+				// servers is the only option that would require having duplicates.
+				if (a.name === 'servers') {
+					return;
+				}
 
-			diagnostics.push({
-				severity: DiagnosticSeverity.Warning,
-				range: a.range,
-				message: `Duplicate global option "${a.name}"`,
-				source: "caddyfile",
+				diagnostics.push({
+					severity: DiagnosticSeverity.Warning,
+					range: a.range,
+					message: `Duplicate global option "${a.name}"`,
+					source: 'caddyfile',
+				});
 			});
-		});
 
 		// Janky way of checking for any other global option blocks.
 		let start: number = 0;
@@ -171,23 +168,23 @@ async function validateTextDocument(document: TextDocument): Promise<void> {
 				end: { line: i + 1, character: 0 },
 			});
 
-			if (line === "{\n") {
+			if (line === '{\n') {
 				start = i;
 				continue;
 			}
 
-			if (start === 0 || line !== "}\n") {
+			if (start === 0 || line !== '}\n') {
 				continue;
 			}
 
 			diagnostics.push({
 				severity: DiagnosticSeverity.Error,
-				message: "Only one global option block is allowed.",
-				source: "caddyfile",
+				message: 'Only one global option block is allowed.',
+				source: 'caddyfile',
 
 				range: {
 					start: { line: start, character: 0 },
-					end: { line: i+1, character: 0 },
+					end: { line: i + 1, character: 0 },
 				},
 			});
 			start = 0;
@@ -198,10 +195,10 @@ async function validateTextDocument(document: TextDocument): Promise<void> {
 		uri: document.uri,
 		diagnostics: diagnostics,
 	});
-};
+}
 
 connection.onDidChangeWatchedFiles((_: DidChangeWatchedFilesParams) => {
-	connection.console.log("We received an file change event");
+	connection.console.log('We received an file change event');
 });
 
 connection.onCompletion((params: TextDocumentPositionParams): CompletionItem[] => {
@@ -221,21 +218,23 @@ connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
 	return item;
 });
 
-connection.onHover((params: HoverParams): Hover|null => {
+connection.onHover((params: HoverParams): Hover | null => {
 	const document = documents.get(params.textDocument.uri);
 	if (document === undefined) {
 		return null;
 	}
 
 	if (isInGlobalOptions(document, params)) {
-		const line = document.getText({
-			start: { line: params.position.line, character: 0 },
-			end: { line: params.position.line + 1, character: 0 },
-		}).trim();
+		const line = document
+			.getText({
+				start: { line: params.position.line, character: 0 },
+				end: { line: params.position.line + 1, character: 0 },
+			})
+			.trim();
 
 		let option: string;
-		if (line.includes(" ")) {
-			const sections = line.split(" ");
+		if (line.includes(' ')) {
+			const sections = line.split(' ');
 			option = sections[0];
 		} else {
 			option = line;
@@ -254,14 +253,16 @@ connection.onHover((params: HoverParams): Hover|null => {
 		};
 	}
 
-	const line = document.getText({
-		start: { line: params.position.line, character: 0 },
-		end: { line: params.position.line + 1, character: 0 },
-	}).trim();
+	const line = document
+		.getText({
+			start: { line: params.position.line, character: 0 },
+			end: { line: params.position.line + 1, character: 0 },
+		})
+		.trim();
 
 	let directive: string;
-	if (line.includes(" ")) {
-		const sections = line.split(" ");
+	if (line.includes(' ')) {
+		const sections = line.split(' ');
 		directive = sections[0];
 	} else {
 		directive = line;

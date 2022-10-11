@@ -1,5 +1,5 @@
-import { Position, TextDocumentPositionParams } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
+import { Position, TextDocumentPositionParams } from 'vscode-languageserver';
+import { TextDocument } from 'vscode-languageserver-textdocument';
 
 function hasGlobalOptions(document: TextDocument): boolean {
 	if (document.lineCount < 2) {
@@ -11,15 +11,15 @@ function hasGlobalOptions(document: TextDocument): boolean {
 		end: { line: 1, character: 0 },
 	});
 
-	return text === "{\n";
-};
+	return text === '{\n';
+}
 
 interface Range {
 	start: Position;
 	end: Position;
-};
+}
 
-export function getGlobalOptionsPosition(document: TextDocument): Range|null {
+export function getGlobalOptionsPosition(document: TextDocument): Range | null {
 	if (!hasGlobalOptions(document)) {
 		return null;
 	}
@@ -32,7 +32,7 @@ export function getGlobalOptionsPosition(document: TextDocument): Range|null {
 			end: { line: i + 1, character: 0 },
 		});
 
-		if (text !== "}\n") {
+		if (text !== '}\n') {
 			continue;
 		}
 
@@ -56,6 +56,5 @@ export function isInGlobalOptions(document: TextDocument, params: TextDocumentPo
 		return false;
 	}
 
-	return params.position.line > globalOptions.start.line
-		&& params.position.line < globalOptions.end.line;
-};
+	return params.position.line > globalOptions.start.line && params.position.line < globalOptions.end.line;
+}
