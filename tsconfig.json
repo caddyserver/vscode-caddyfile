@@ -1,19 +1,15 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "CommonJS",
         "outDir": "out",
         "sourceMap": true,
-        "target": "es6",
-        "lib": [ "es2015" ],
+        "target": "ES6",
+        "lib": ["ES2015"],
         "noImplicitAny": true,
         "noImplicitThis": true,
         "alwaysStrict": true,
         "strictBindCallApply": true,
         "strictFunctionTypes": true,
     },
-
-    "exclude": [
-        "node_modules",
-        "third_party"
-    ]
+    "exclude": ["node_modules", "third_party"]
 }
