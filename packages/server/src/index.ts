@@ -30,14 +30,12 @@ const documents: TextDocuments<TextDocument> = new TextDocuments(TextDocument);
 
 let hasConfigurationCapability: boolean = false;
 let hasWorkspaceFolderCapability: boolean = false;
-//let hasDiagnosticRelatedInformationCapability: boolean = false;
 
 connection.onInitialize((params: InitializeParams) => {
 	let capabilities = params.capabilities;
 
 	hasConfigurationCapability = !!(capabilities.workspace && !!capabilities.workspace.configuration);
 	hasWorkspaceFolderCapability = !!(capabilities.workspace && !!capabilities.workspace.workspaceFolders);
-	//hasDiagnosticRelatedInformationCapability = !!(capabilities.textDocument && capabilities.textDocument.publishDiagnostics && capabilities.textDocument.publishDiagnostics.relatedInformation);
 
 	const result: InitializeResult = {
 		capabilities: {
@@ -142,23 +140,23 @@ async function validateTextDocument(document: TextDocument): Promise<void> {
 		}
 
 		// Fancy way of only getting duplicate directives.
-		const map = new Map();
-		options.forEach(a => map.set(a.name, (map.get(a.name) || 0) + 1));
-		options
-			.filter(a => map.get(a.name) > 1)
-			.forEach((a: Option) => {
-				// servers is the only option that would require having duplicates.
-				if (a.name === 'servers') {
-					return;
-				}
+		// const map = new Map();
+		// options.forEach(a => map.set(a.name, (map.get(a.name) || 0) + 1));
+		// options
+		// 	.filter(a => map.get(a.name) > 1)
+		// 	.forEach((a: Option) => {
+		// 		// servers is the only option that would require having duplicates.
+		// 		if (a.name === 'servers') {
+		// 			return;
+		// 		}
 
-				diagnostics.push({
-					severity: DiagnosticSeverity.Warning,
-					range: a.range,
-					message: `Duplicate global option "${a.name}"`,
-					source: 'caddyfile',
-				});
-			});
+		// 		diagnostics.push({
+		// 			severity: DiagnosticSeverity.Warning,
+		// 			range: a.range,
+		// 			message: `Duplicate global option "${a.name}"`,
+		// 			source: 'caddyfile',
+		// 		});
+		// 	});
 
 		// Janky way of checking for any other global option blocks.
 		let start: number = 0;
