@@ -1,0 +1,6 @@
+.github
+.yarn
+dist
+out
+node_modules
+third_party
