@@ -5,24 +5,20 @@
 	"license": "MIT",
     "publisher": "matthewpi",
 	"private": true,
-
 	"repository": {
         "type": "git",
         "url": "https://github.com/matthewpi/vscode-caddyfile-support"
 	},
-
 	"author": {
         "name": "Matthew Penner",
         "email": "me@matthewp.io",
         "url": "https://matthewp.io"
 	},
-
 	"dependencies": {
 		"vscode-languageserver": "^6.1.1",
 		"vscode-languageserver-textdocument": "^1.0.1"
 	},
-
 	"engines": {
-        "node": ">=14"
+        "node": ">=14.0.0"
     }
 }
