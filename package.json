@@ -50,11 +50,13 @@
         "vscode": "^1.51.0"
     },
     "activationEvents": [
+        "onLanguage:caddyfile",
         "workspaceContains:**/Caddyfile",
+        "workspaceContains:**/Caddyfile*",
         "workspaceContains:**/caddyfile",
+        "workspaceContains:**/caddyfile*",
         "workspaceContains:**/*.Caddyfile",
-        "workspaceContains:**/*.caddyfile",
-        "onLanguage:caddyfile"
+        "workspaceContains:**/*.caddyfile"
     ],
     "contributes": {
         "languages": [
@@ -63,11 +65,14 @@
                 "configuration": "./language-configuration.json",
                 "aliases": [
                     "Caddyfile",
-                    "caddyfile"
+                    "Caddy",
+                    "caddy"
                 ],
                 "extensions": [
                     "Caddyfile",
+                    "Caddyfile*",
                     "caddyfile",
+                    "caddyfile*",
                     "*.Caddyfile",
                     "*.caddyfile"
                 ]
