@@ -35,7 +35,7 @@
     "extensionDependencies": [],
     "dependencies": {
         "tree-kill": "file:third_party/tree-kill",
-        "vscode-languageclient": "^6.1.4"
+        "vscode-languageclient": "^8.0.2"
     },
     "devDependencies": {
         "@types/node": "^16.7.8",
