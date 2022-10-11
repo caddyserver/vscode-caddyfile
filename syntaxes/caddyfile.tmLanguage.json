@@ -2,7 +2,7 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 
 	"name": "Caddyfile",
-	"fileTypes": [ "Caddyfile" ],
+	"fileTypes": ["Caddyfile"],
 	"scopeName": "source.Caddyfile",
 
 	"patterns": [
@@ -125,7 +125,7 @@
 					"patterns": [
 						{
 							"name": "support.constant.Caddyfile",
-							"match": "^\\s*(debug|https?_port|default_sni|order|experimental_http3|storage|acme_ca_root|acme_ca|email|admin|on_demand_tls|local_certs|key_type|auto_https)"
+							"match": "^\\s*(debug|https?_port|default_bind|order|storage|storage_clean_interval|renew_interval|ocsp_interval|admin|log|grace_period|shutdown_delay|auto_https|email|default_sni|local_certs|skip_install_trust|acme_ca|acme_ca_root|acme_eab|acme_dns|on_demand_tls|key_type|cert_issuer|ocsp_stapling|preferred_chains|servers|pki|events)"
 						}
 					]
 				}
