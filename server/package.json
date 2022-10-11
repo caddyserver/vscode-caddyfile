@@ -3,22 +3,22 @@
 	"description": "",
 	"version": "0.0.1",
 	"license": "MIT",
-    "publisher": "matthewpi",
+	"publisher": "matthewpi",
 	"private": true,
 	"repository": {
-        "type": "git",
-        "url": "https://github.com/matthewpi/vscode-caddyfile-support"
+		"type": "git",
+		"url": "https://github.com/matthewpi/vscode-caddyfile-support"
 	},
 	"author": {
-        "name": "Matthew Penner",
-        "email": "me@matthewp.io",
-        "url": "https://matthewp.io"
+		"name": "Matthew Penner",
+		"email": "me@matthewp.io",
+		"url": "https://matthewp.io"
 	},
 	"dependencies": {
-		"vscode-languageserver": "^6.1.1",
-		"vscode-languageserver-textdocument": "^1.0.1"
+		"vscode-languageserver": "6.1.1",
+		"vscode-languageserver-textdocument": "1.0.7"
 	},
 	"engines": {
-        "node": ">=14.0.0"
-    }
+		"node": ">=14.0.0"
+	}
 }
