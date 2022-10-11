@@ -1,7 +1,7 @@
-import { ChildProcess, spawn } from 'child_process';
-import kill = require('tree-kill');
-import path = require('path');
-import vscode = require('vscode');
+import { ChildProcess, spawn } from 'node:child_process';
+import * as path from 'node:path';
+import * as vscode from 'vscode';
+import { treeKill } from '@matthewpi/tree-kill';
 
 export class CaddyfileDocumentFormattingEditProvider implements vscode.DocumentFormattingEditProvider {
 	public provideDocumentFormattingEdits(
@@ -20,12 +20,14 @@ export class CaddyfileDocumentFormattingEditProvider implements vscode.DocumentF
 					console.log(err);
 					return Promise.reject('Check the console in dev tools to find errors when formatting.');
 				}
+
+				return;
 			},
 		);
 	}
 
 	private runFormatter(document: vscode.TextDocument, token: vscode.CancellationToken): Thenable<vscode.TextEdit[]> {
-		const executablePath: string = vscode.workspace.getConfiguration('caddyfile').get('executable');
+		const executablePath = vscode.workspace.getConfiguration('caddyfile').get<string>('executable');
 
 		return new Promise<vscode.TextEdit[]>((resolve, reject) => {
 			let executable: string;
@@ -87,14 +89,15 @@ export function killProcessTree(p: ChildProcess, logger?: (...args: any[]) => vo
 		logger = console.log;
 	}
 
-	if (!p || !p.pid || p.exitCode !== null) {
+	const pid = p.pid;
+	if (pid === undefined || p.exitCode !== null) {
 		return Promise.resolve();
 	}
 
 	return new Promise(resolve => {
-		kill(p.pid, err => {
+		treeKill(pid, undefined, err => {
 			if (err) {
-				logger(`Error killing process ${p.pid}: ${err}`);
+				logger?.(`Error killing process ${p.pid}: ${err}`);
 			}
 
 			return resolve();

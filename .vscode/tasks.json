@@ -1,0 +1,29 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "dev",
+			"type": "shell",
+			"command": "yarn run dev",
+			"isBackground": true,
+			"problemMatcher": [
+				{
+					"owner": "custom",
+					"pattern": [
+						{
+							"regexp": "^PATTERN WON'T MATCH, BUT NEEDED TO BE A VALID PROBLEM MATCHER$",
+							"file": 1,
+							"location": 2,
+							"message": 3
+						}
+					],
+					"background": {
+						"activeOnStart": true,
+						"beginsPattern": ".",
+						"endsPattern": "^@matthewpi\\/.:dev: \\[watch\\] build finished"
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,4 +1,4 @@
-import * as path from 'path';
+import * as path from 'node:path';
 import { languages, workspace, ExtensionContext } from 'vscode';
 import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from 'vscode-languageclient';
 
@@ -9,7 +9,7 @@ let client: LanguageClient;
 export function activate(context: ExtensionContext) {
 	languages.registerDocumentFormattingEditProvider('caddyfile', new CaddyfileDocumentFormattingEditProvider());
 
-	const serverModule = context.asAbsolutePath(path.join('server', 'out', 'server.js'));
+	const serverModule = context.asAbsolutePath(path.join('packages', 'server', 'dist', 'index.cjs'));
 
 	const debugOptions = {
 		execArgv: ['--nolazy', '--inspect=6009'],

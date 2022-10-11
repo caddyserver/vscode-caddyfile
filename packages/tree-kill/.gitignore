@@ -11,6 +11,9 @@
 # Sublime Text
 *.sublime-*
 
+# Visual Studio Code
+.vscode
+
 # VIM
 .*.sw[a-p]
 
@@ -58,6 +61,4 @@ yarn-error.log
 #   Project Files   #
 #-------------------#
 
-.vscode-test
 dist
-out

@@ -1,17 +1,23 @@
 {
-    "name": "caddyfile-support",
+    "name": "@matthewpi/caddyfile-support",
     "displayName": "Caddyfile Support",
     "description": "Rich Caddyfile support for Visual Studio Code",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "license": "MIT",
-    "publisher": "matthewpi",
-    "packageManager": "yarn@3.2.4",
     "private": true,
+	"main": "./packages/client/dist/index.cjs",
+    "packageManager": "yarn@3.2.4",
     "categories": [
         "Programming Languages",
         "Linters",
         "Formatters"
     ],
+    "publisher": "matthewpi",
+    "author": {
+        "name": "Matthew Penner",
+        "email": "me@matthewp.io",
+        "url": "https://matthewp.io"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/matthewpi/vscode-caddyfile-support"
@@ -19,40 +25,32 @@
     "bugs": {
         "url": "https://github.com/matthewpi/vscode-caddyfile-support/issues"
     },
-    "author": {
-        "name": "Matthew Penner",
-        "email": "me@matthewp.io",
-        "url": "https://matthewp.io"
+    "engines": {
+        "node": ">=16.13.0",
+        "vscode": ">=1.67.0",
+        "yarn": ">=1.22.0"
     },
-    "main": "./dist/main.js",
+    "workspaces": [
+        "packages/*"
+    ],
     "scripts": {
-        "vscode:prepublish": "yarn compile",
-        "postinstall": "cd server && yarn install && cd ..",
-        "compile": "webpack --mode production && tsc -b ./server",
-        "webpack": "webpack --mode development",
-        "webpack-dev": "webpack --mode development --watch",
-        "watch": "tsc -watch -p ./"
+        "vscode:prepublish": "yarn run build",
+        "build": "turbo run build",
+        "dev": "turbo run dev --no-cache --parallel --continue",
+        "lint": "turbo run lint",
+        "clean": "turbo run clean && rimraf node_modules/.cache"
     },
-    "extensionDependencies": [],
     "dependencies": {
         "tree-kill": "file:third_party/tree-kill",
         "vscode-languageclient": "6.1.4"
     },
     "devDependencies": {
-        "@types/node": "16.11.65",
-        "@types/vscode": "1.59.0",
         "prettier": "2.7.1",
-        "ts-loader": "9.4.1",
-        "tslint": "6.1.3",
-        "typescript": "4.8.4",
-        "webpack": "5.74.0",
-        "webpack-cli": "4.10.0"
+        "rimraf": "3.0.2",
+        "turbo": "1.5.6",
+        "typescript": "4.8.4"
     },
-    "engines": {
-        "node": ">=14.0.0",
-        "vscode": "^1.51.0",
-        "yarn": ">=1.22.0"
-    },
+    "extensionDependencies": [],
     "activationEvents": [
         "onLanguage:caddyfile",
         "workspaceContains:**/Caddyfile",
@@ -68,8 +66,9 @@
                 "id": "caddyfile",
                 "configuration": "./language-configuration.json",
                 "aliases": [
-                    "Caddyfile",
+					"Caddyfile",
                     "Caddy",
+					"caddyfile",
                     "caddy"
                 ],
                 "extensions": [
@@ -115,5 +114,9 @@
                 }
             }
         }
+    },
+    "volta": {
+        "node": "16.17.1",
+        "yarn": "1.22.19"
     }
 }
