@@ -20,7 +20,7 @@
 		"vscode-languageclient": "6.1.4"
 	},
 	"devDependencies": {
-		"@types/node": "16.11.65",
+		"@types/node": "18.8.5",
 		"@types/vscode": "1.59.0",
 		"@yarnpkg/esbuild-plugin-pnp": "3.0.0-rc.15",
 		"cross-env": "7.0.3",
