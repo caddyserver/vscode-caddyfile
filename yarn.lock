@@ -44,7 +44,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@matthewpi/caddyfile-language-server@workspace:packages/server"
   dependencies:
-    "@types/node": 16.11.65
+    "@types/node": 18.11.0
     "@yarnpkg/esbuild-plugin-pnp": 3.0.0-rc.15
     cross-env: 7.0.3
     esbuild: 0.15.11
@@ -59,7 +59,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@matthewpi/tree-kill@workspace:packages/tree-kill"
   dependencies:
-    "@types/node": 16.11.65
+    "@types/node": 18.11.0
     cross-env: 7.0.3
     rimraf: 3.0.2
     tsup: 6.2.3
@@ -72,7 +72,7 @@ __metadata:
   resolution: "@matthewpi/vscode-caddyfile-support@workspace:packages/client"
   dependencies:
     "@matthewpi/tree-kill": "workspace:*"
-    "@types/node": 16.11.65
+    "@types/node": 18.11.0
     "@types/vscode": 1.59.0
     "@yarnpkg/esbuild-plugin-pnp": 3.0.0-rc.15
     cross-env: 7.0.3
@@ -137,10 +137,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:16.11.65":
-  version: 16.11.65
-  resolution: "@types/node@npm:16.11.65"
-  checksum: 81d84cb1e7aa305574cd35acf1a5e47f4a7f52783ba096f4bc511314540dee33a27cbd4fddc8bddd4535f1c87a96a76907157bcde093a25c89e8851d6dd63022
+"@types/node@npm:18.11.0":
+  version: 18.11.0
+  resolution: "@types/node@npm:18.11.0"
+  checksum: f27f899ab428e5732f04fadadc9203f44bdf3abf56474540ee27da90e4f2ba133faf87263cada4d2271955f92ee6a142bd50683c86290fe5070c19aac44fd654
   languageName: node
   linkType: hard
 
