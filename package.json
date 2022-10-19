@@ -34,7 +34,7 @@
     ],
     "scripts": {
         "vscode:prepublish": "pnpm run build",
-		"package": "pnpm vsce package --no-dependencies --no-yarn --out dist/caddyfile-support.vsix",
+		"package": "mkdir dist; pnpm vsce package --no-dependencies --no-yarn --out dist/caddyfile-support.vsix",
         "build": "turbo run build",
         "dev": "turbo run dev --no-cache --parallel --continue",
         "lint": "turbo run lint",
