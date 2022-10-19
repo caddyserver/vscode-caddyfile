@@ -2,7 +2,8 @@
 # IDEs and Editors #
 #------------------#
 
-# Jetbrains
+# JetBrains
+.fleet
 .idea
 *.iml
 *.ipr

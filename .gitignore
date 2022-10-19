@@ -2,7 +2,8 @@
 # IDEs and Editors #
 #------------------#
 
-# Jetbrains
+# JetBrains
+.fleet
 .idea
 *.iml
 *.ipr
@@ -10,6 +11,9 @@
 
 # Sublime Text
 *.sublime-*
+
+# Visual Studio Code
+.vscode
 
 # VIM
 .*.sw[a-p]

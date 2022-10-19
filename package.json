@@ -6,7 +6,7 @@
     "license": "MIT",
     "private": true,
     "main": "./packages/client/dist/index.cjs",
-    "packageManager": "yarn@3.2.4",
+    "packageManager": "pnpm@7.13.5",
     "categories": [
         "Programming Languages",
         "Linters",
@@ -27,14 +27,15 @@
     },
     "engines": {
         "node": ">=16.13.0",
-        "vscode": ">=1.67.0",
-        "yarn": ">=1.22.0"
+        "vscode": ">=1.67.0"
     },
     "workspaces": [
         "packages/*"
     ],
     "scripts": {
-        "vscode:prepublish": "yarn run build",
+        "vscode:prepublish": "pnpm run build",
+		"package": "pnpm vsce package --no-dependencies",
+		"publish": "pnpm vsce publish --no-dependencies",
         "build": "turbo run build",
         "dev": "turbo run dev --no-cache --parallel --continue",
         "lint": "turbo run lint",
@@ -113,6 +114,6 @@
     },
     "volta": {
         "node": "16.17.1",
-        "yarn": "1.22.19"
+        "pnpm": "7.13.5"
     }
 }

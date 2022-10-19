@@ -11,29 +11,31 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-    - name: Install Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
 
-    - name: Code Checkout
-      uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: pnpm
 
-    - name: Install Dependencies
-      run: yarn install --immutable
+      - name: Code Checkout
+        uses: actions/checkout@v3
 
-    - name: Publish to OpenVSX
-      id: publish
-      uses: HaaLeo/publish-vscode-extension@v1
-      with:
-        pat: ${{ secrets.OPEN_VSX_TOKEN }}
-        yarn: true
+      - name: Install Dependencies
+        run: pnpm install
 
-    - name: Publish to Visual Studio Marketplace
-      uses: HaaLeo/publish-vscode-extension@v1
-      with:
-        pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
-        registryUrl: https://marketplace.visualstudio.com
-        extensionFile: ${{ steps.publish.outputs.vsixPath }}
-        packagePath: ""
-        yarn: true
+      - name: Publish to OpenVSX
+        id: publish
+        uses: HaaLeo/publish-vscode-extension@v1
+        with:
+          pat: ${{ secrets.OPEN_VSX_TOKEN }}
+
+      - name: Publish to Visual Studio Marketplace
+        uses: HaaLeo/publish-vscode-extension@v1
+        with:
+          pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
+          registryUrl: https://marketplace.visualstudio.com
+          extensionFile: ${{ steps.publish.outputs.vsixPath }}
+          packagePath: ""
