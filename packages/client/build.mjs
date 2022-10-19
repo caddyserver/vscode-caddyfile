@@ -15,7 +15,7 @@ build({
 
 	bundle: true,
 	external: ['vscode'],
-	outfile: 'dist/index.cjs',
+	outfile: 'dist/index.js',
 	entryPoints: ['src/index.ts'],
 	platform: 'node',
 }).catch(() => exit(1));

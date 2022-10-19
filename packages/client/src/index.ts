@@ -9,7 +9,7 @@ let client: LanguageClient;
 export function activate(context: ExtensionContext) {
 	languages.registerDocumentFormattingEditProvider('caddyfile', new CaddyfileDocumentFormattingEditProvider());
 
-	const serverModule = context.asAbsolutePath(path.join('packages', 'server', 'dist', 'index.cjs'));
+	const serverModule = context.asAbsolutePath(path.join('packages', 'server', 'dist', 'index.js'));
 
 	const debugOptions = {
 		execArgv: ['--nolazy', '--inspect=6009'],

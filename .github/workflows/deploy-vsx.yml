@@ -26,16 +26,21 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
 
+      - name: Package
+        run: pnpm package
+
       - name: Publish to OpenVSX
         id: publish
         uses: HaaLeo/publish-vscode-extension@v1
         with:
           pat: ${{ secrets.OPEN_VSX_TOKEN }}
+          extensionFile: "./dist/caddyfile-support.vsix"
+          packagePath: ""
 
       - name: Publish to Visual Studio Marketplace
         uses: HaaLeo/publish-vscode-extension@v1
         with:
           pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
           registryUrl: https://marketplace.visualstudio.com
-          extensionFile: ${{ steps.publish.outputs.vsixPath }}
+          extensionFile: "./dist/caddyfile-support.vsix"
           packagePath: ""

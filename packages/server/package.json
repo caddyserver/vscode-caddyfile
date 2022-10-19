@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"publisher": "matthewpi",
 	"private": true,
-	"main": "dist/index.cjs",
+	"main": "dist/index.js",
 	"engines": {
 		"node": ">=16.13",
 		"yarn": ">=1.22.0"
