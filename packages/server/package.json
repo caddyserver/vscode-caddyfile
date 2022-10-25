@@ -20,7 +20,7 @@
 		"vscode-languageserver-textdocument": "1.0.7"
 	},
 	"devDependencies": {
-		"@types/node": "16.11.65",
+		"@types/node": "18.11.5",
 		"cross-env": "7.0.3",
 		"esbuild": "0.15.12",
 		"rimraf": "3.0.2",
