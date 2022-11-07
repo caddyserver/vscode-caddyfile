@@ -45,7 +45,7 @@
         "rimraf": "3.0.2",
         "turbo": "1.5.6",
         "typescript": "4.8.4",
-		"vsce": "2.12.0"
+		"vsce": "2.14.0"
     },
     "extensionDependencies": [],
     "activationEvents": [
