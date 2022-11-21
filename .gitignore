@@ -12,9 +12,6 @@
 # Sublime Text
 *.sublime-*
 
-# Visual Studio Code
-.vscode
-
 # VIM
 .*.sw[a-p]
 
