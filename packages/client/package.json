@@ -20,7 +20,7 @@
 		"@types/node": "16.11.65",
 		"@types/vscode": "1.59.0",
 		"cross-env": "7.0.3",
-		"esbuild": "0.15.15",
+		"esbuild": "0.16.16",
 		"rimraf": "3.0.2",
 		"typescript": "4.9.4"
 	}
