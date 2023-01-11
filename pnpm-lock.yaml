@@ -18,26 +18,26 @@ importers:
 
   packages/client:
     specifiers:
-      '@matthewpi/caddyfile-language-server': workspace:*
-      '@matthewpi/tree-kill': workspace:*
+      '@caddyserver/caddyfile-language-server': workspace:*
       '@types/node': 16.11.65
       '@types/vscode': 1.59.0
       cross-env: 7.0.3
       esbuild: 0.15.15
       rimraf: 3.0.2
-      typescript: 4.9.3
+      tree-kill: workspace:*
+      typescript: 4.9.4
       vscode-languageclient: 6.1.4
     dependencies:
-      '@matthewpi/tree-kill': link:../tree-kill
+      tree-kill: link:../tree-kill
       vscode-languageclient: 6.1.4
     devDependencies:
-      '@matthewpi/caddyfile-language-server': link:../server
+      '@caddyserver/caddyfile-language-server': link:../server
       '@types/node': 16.11.65
       '@types/vscode': 1.59.0
       cross-env: 7.0.3
       esbuild: 0.15.15
       rimraf: 3.0.2
-      typescript: 4.9.3
+      typescript: 4.9.4
 
   packages/server:
     specifiers:
@@ -45,7 +45,7 @@ importers:
       cross-env: 7.0.3
       esbuild: 0.15.15
       rimraf: 3.0.2
-      typescript: 4.9.3
+      typescript: 4.9.4
       vscode-languageserver: 6.1.1
       vscode-languageserver-textdocument: 1.0.7
     dependencies:
@@ -56,7 +56,7 @@ importers:
       cross-env: 7.0.3
       esbuild: 0.15.15
       rimraf: 3.0.2
-      typescript: 4.9.3
+      typescript: 4.9.4
 
   packages/tree-kill:
     specifiers:
@@ -64,13 +64,13 @@ importers:
       cross-env: 7.0.3
       rimraf: 3.0.2
       tsup: 6.3.0
-      typescript: 4.8.4
+      typescript: 4.9.4
     devDependencies:
       '@types/node': 16.11.65
       cross-env: 7.0.3
       rimraf: 3.0.2
-      tsup: 6.3.0_typescript@4.8.4
-      typescript: 4.8.4
+      tsup: 6.3.0_typescript@4.9.4
+      typescript: 4.9.4
 
 packages:
 
@@ -1382,7 +1382,7 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /tsup/6.3.0_typescript@4.8.4:
+  /tsup/6.3.0_typescript@4.9.4:
     resolution: {integrity: sha512-IaNQO/o1rFgadLhNonVKNCT2cks+vvnWX3DnL8sB87lBDqRvJXHENr5lSPJlqwplUlDxSwZK8dSg87rgBu6Emw==}
     engines: {node: '>=14'}
     hasBin: true
@@ -1412,7 +1412,7 @@ packages:
       source-map: 0.8.0-beta.0
       sucrase: 3.28.0
       tree-kill: 1.2.2
-      typescript: 4.8.4
+      typescript: 4.9.4
     transitivePeerDependencies:
       - supports-color
       - ts-node
@@ -1498,14 +1498,14 @@ packages:
       underscore: 1.13.6
     dev: true
 
-  /typescript/4.8.4:
-    resolution: {integrity: sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==}
+  /typescript/4.9.3:
+    resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
 
-  /typescript/4.9.3:
-    resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
+  /typescript/4.9.4:
+    resolution: {integrity: sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true

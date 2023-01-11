@@ -6,7 +6,7 @@
     "license": "MIT",
     "private": true,
     "main": "packages/client/dist/index.js",
-    "packageManager": "pnpm@7.14.2",
+    "packageManager": "pnpm@7.19.0",
     "categories": [
         "Programming Languages",
         "Linters",
@@ -14,24 +14,19 @@
     ],
     "publisher": "matthewpi",
     "author": {
-        "name": "Matthew Penner",
-        "email": "me@matthewp.io",
-        "url": "https://matthewp.io"
+        "name": "Caddy Team"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/matthewpi/vscode-caddyfile-support"
+		"url": "https://github.com/caddyserver/vscode-caddyfile"
     },
     "bugs": {
-        "url": "https://github.com/matthewpi/vscode-caddyfile-support/issues"
+        "url": "https://github.com/caddyserver/vscode-caddyfile/issues"
     },
     "engines": {
         "node": ">=16.13.0",
         "vscode": ">=1.67.0"
     },
-    "workspaces": [
-        "packages/*"
-    ],
     "scripts": {
         "vscode:prepublish": "pnpm run build",
 		"package": "mkdir dist; pnpm vsce package --no-dependencies --no-yarn --out dist/caddyfile-support.vsix",
