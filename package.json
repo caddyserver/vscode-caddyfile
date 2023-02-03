@@ -7,6 +7,7 @@
     "private": true,
     "main": "packages/client/dist/index.js",
     "packageManager": "pnpm@7.19.0",
+    "icon": "media/caddy-logo.png",
     "categories": [
         "Programming Languages",
         "Linters",
