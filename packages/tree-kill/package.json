@@ -1,5 +1,5 @@
 {
-	"name": "@matthewpi/tree-kill",
+	"name": "tree-kill",
 	"description": "",
 	"version": "1.0.0",
 	"license": "MIT",
@@ -17,12 +17,7 @@
 		"@types/node": "16.11.65",
 		"cross-env": "7.0.3",
 		"rimraf": "3.0.2",
-		"tsup": "6.3.0",
-		"typescript": "4.8.4"
-	},
-	"repository": {
-		"type": "git",
-		"url": "ssh://git@github.com/matthewpi/vscode-caddyfile-support.git",
-		"directory": "packages/tree-kill"
+		"tsup": "6.5.0",
+		"typescript": "4.9.4"
 	}
 }

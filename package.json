@@ -6,7 +6,8 @@
     "license": "MIT",
     "private": true,
     "main": "packages/client/dist/index.js",
-    "packageManager": "pnpm@7.14.2",
+    "packageManager": "pnpm@7.19.0",
+    "icon": "media/caddy-logo.png",
     "categories": [
         "Programming Languages",
         "Linters",
@@ -14,24 +15,19 @@
     ],
     "publisher": "matthewpi",
     "author": {
-        "name": "Matthew Penner",
-        "email": "me@matthewp.io",
-        "url": "https://matthewp.io"
+        "name": "Caddy Team"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/matthewpi/vscode-caddyfile-support"
+		"url": "https://github.com/caddyserver/vscode-caddyfile"
     },
     "bugs": {
-        "url": "https://github.com/matthewpi/vscode-caddyfile-support/issues"
+        "url": "https://github.com/caddyserver/vscode-caddyfile/issues"
     },
     "engines": {
         "node": ">=16.13.0",
         "vscode": ">=1.67.0"
     },
-    "workspaces": [
-        "packages/*"
-    ],
     "scripts": {
         "vscode:prepublish": "pnpm run build",
 		"package": "mkdir dist; pnpm vsce package --no-dependencies --no-yarn --out dist/caddyfile-support.vsix",
@@ -41,11 +37,11 @@
         "clean": "turbo run clean && rimraf node_modules/.cache"
     },
     "devDependencies": {
-        "prettier": "2.7.1",
+		"@vscode/vsce": "2.16.0",
+        "prettier": "2.8.2",
         "rimraf": "3.0.2",
-        "turbo": "1.6.3",
-        "typescript": "4.9.3",
-		"vsce": "2.14.0"
+        "turbo": "1.7.0",
+        "typescript": "4.9.4"
     },
     "extensionDependencies": [],
     "activationEvents": [

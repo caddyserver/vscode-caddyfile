@@ -1,7 +1,7 @@
 import { ChildProcess, spawn } from 'node:child_process';
 import * as path from 'node:path';
 import * as vscode from 'vscode';
-import { treeKill } from '@matthewpi/tree-kill';
+import { treeKill } from 'tree-kill';
 
 export class CaddyfileDocumentFormattingEditProvider implements vscode.DocumentFormattingEditProvider {
 	public provideDocumentFormattingEdits(
