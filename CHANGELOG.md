@@ -4,6 +4,16 @@ All notable changes to the `vscode-caddyfile-support` project will be documented
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.2.4] - 2023-02-16
+
+### Added
+
+- Added the Caddy logo to be shown in VS Code and on the extension marketplace.
+
+### Changed
+
+- Updated all references of the old repository to point to the new one.
+
 ## [v0.2.3] - 2022-11-21
 
 ### Fixed

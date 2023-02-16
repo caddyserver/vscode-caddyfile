@@ -2,11 +2,11 @@
     "name": "caddyfile-support",
     "displayName": "Caddyfile Support",
     "description": "Rich Caddyfile support for Visual Studio Code",
-    "version": "0.2.3",
+    "version": "0.2.4",
     "license": "MIT",
     "private": true,
     "main": "packages/client/dist/index.js",
-    "packageManager": "pnpm@7.19.0",
+    "packageManager": "pnpm@7.26.3",
     "icon": "media/caddy-logo.png",
     "categories": [
         "Programming Languages",
