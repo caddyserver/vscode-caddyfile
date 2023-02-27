@@ -171,7 +171,8 @@
 					"name": "entity.name.function.Caddyfile",
 					"match": "^\\s*[a-zA-Z_\\-+]+"
 				},
-				{ "include": "#content_types" }
+				{ "include": "#content_types" },
+				{ "include": "#heredoc" }
 			]
 		},
 
@@ -212,6 +213,168 @@
 						{ "include": "#directive" },
 						{ "include": "#block" }
 					]
+				}
+			]
+		},
+
+		"heredoc": {
+			"patterns": [
+				{
+					"begin": "(?i)(?=<<\\s*([a-z_\\x{7f}-\\x{10ffff}][a-z0-9_\\x{7f}-\\x{10ffff}]*)\\s*$)",
+					"end": "(?!\\G)",
+					"name": "string.unquoted.heredoc.caddyfile",
+					"patterns": [
+						{ "include": "#heredoc_interior" }
+					]
+				}
+			]
+		},
+
+		"heredoc_interior": {
+			"patterns": [
+				{
+					"comment": "CSS",
+
+					"name": "meta.embedded.css",
+					"contentName": "source.css",
+
+					"begin": "(<<)\\s*(CSS)(\\s*)$",
+					"beginCaptures": {
+						"0": { "name": "punctuation.section.embedded.begin.caddyfile" },
+						"1": { "name": "punctuation.definition.string.begin" },
+						"2": { "name": "keyword.operator.heredoc.caddyfile" },
+						"4": { "name": "invalid.illegal.trailing-whitespace.caddyfile" }
+					},
+
+					"end": "^\\s*(\\2)(?![A-Za-z0-9_\\x{7f}-\\x{10ffff}])",
+					"endCaptures": {
+						"0": { "name": "punctuation.section.embedded.end.caddyfile" },
+						"1": { "name": "keyword.operator.heredoc.caddyfile" }
+					},
+
+					"patterns": [
+						{ "include": "source.css" }
+					]
+				},
+
+				{
+					"comment": "HTML",
+
+					"name": "meta.embedded.html",
+					"contentName": "text.html",
+
+					"begin": "(<<)\\s*(HTML)(\\s*)$",
+					"beginCaptures": {
+						"0": { "name": "punctuation.section.embedded.begin.caddyfile" },
+						"1": { "name": "punctuation.definition.string.begin" },
+						"2": { "name": "keyword.operator.heredoc.caddyfile" },
+						"4": { "name": "invalid.illegal.trailing-whitespace.caddyfile" }
+					},
+
+					"end": "^\\s*(\\2)(?![A-Za-z0-9_\\x{7f}-\\x{10ffff}])",
+					"endCaptures": {
+						"0": { "name": "punctuation.section.embedded.end.caddyfile" },
+						"1": { "name": "keyword.operator.heredoc.caddyfile" }
+					},
+
+					"patterns": [
+						{ "include": "text.html.basic" }
+					]
+				},
+
+				{
+					"comment": "JavaScript",
+
+					"name": "meta.embedded.js",
+					"contentName": "source.js",
+
+					"begin": "(<<)\\s*(JAVASCRIPT|JS)(\\s*)$",
+					"beginCaptures": {
+						"0": { "name": "punctuation.section.embedded.begin.caddyfile" },
+						"1": { "name": "punctuation.definition.string.begin" },
+						"2": { "name": "keyword.operator.heredoc.caddyfile" },
+						"4": { "name": "invalid.illegal.trailing-whitespace.caddyfile" }
+					},
+
+					"end": "^\\s*(\\2)(?![A-Za-z0-9_\\x{7f}-\\x{10ffff}])",
+					"endCaptures": {
+						"0": { "name": "punctuation.section.embedded.end.caddyfile" },
+						"1": { "name": "keyword.operator.heredoc.caddyfile" }
+					},
+
+					"patterns": [
+						{ "include": "source.js" }
+					]
+				},
+
+				{
+					"comment": "JSON",
+
+					"name": "meta.embedded.json",
+					"contentName": "source.json",
+
+					"begin": "(<<)\\s*(JSON)(\\s*)$",
+					"beginCaptures": {
+						"0": { "name": "punctuation.section.embedded.begin.caddyfile" },
+						"1": { "name": "punctuation.definition.string.begin" },
+						"2": { "name": "keyword.operator.heredoc.caddyfile" },
+						"4": { "name": "invalid.illegal.trailing-whitespace.caddyfile" }
+					},
+
+					"end": "^\\s*(\\2)(?![A-Za-z0-9_\\x{7f}-\\x{10ffff}])",
+					"endCaptures": {
+						"0": { "name": "punctuation.section.embedded.end.caddyfile" },
+						"1": { "name": "keyword.operator.heredoc.caddyfile" }
+					},
+
+					"patterns": [
+						{ "include": "source.json" }
+					]
+				},
+
+				{
+					"comment": "XML",
+
+					"name": "meta.embedded.xml",
+					"contentName": "text.xml",
+
+					"begin": "(<<)\\s*(XML)(\\s*)$",
+					"beginCaptures": {
+						"0": { "name": "punctuation.section.embedded.begin.caddyfile" },
+						"1": { "name": "punctuation.definition.string.begin" },
+						"2": { "name": "keyword.operator.heredoc.caddyfile" },
+						"4": { "name": "invalid.illegal.trailing-whitespace.caddyfile" }
+					},
+
+					"end": "^\\s*(\\2)(?![A-Za-z0-9_\\x{7f}-\\x{10ffff}])",
+					"endCaptures": {
+						"0": { "name": "punctuation.section.embedded.end.caddyfile" },
+						"1": { "name": "keyword.operator.heredoc.caddyfile" }
+					},
+
+					"patterns": [
+						{ "include": "text.xml" }
+					]
+				},
+
+				{
+					"comment": "Any other heredoc",
+
+					"begin": "(?i)(<<)\\s*([a-z_\\x{7f}-\\x{10ffff}]+[a-z0-9_\\x{7f}-\\x{10ffff}]*)(\\s*)",
+					"beginCaptures": {
+						"0": { "name": "punctuation.section.embedded.begin.caddyfile" },
+						"1": { "name": "punctuation.definition.string.caddyfile" },
+						"2": { "name": "keyword.operator.heredoc.caddyfile" },
+						"4": { "name": "invalid.illegal.trailing-whitespace.caddyfile" }
+					},
+
+					"end": "^\\s*(\\2)(?![A-Za-z0-9_\\x{7f}-\\x{10ffff}])",
+					"endCaptures": {
+						"0": { "name": "punctuation.section.embedded.end.caddyfile" },
+						"1": { "name": "keyword.operator.heredoc.caddyfile" }
+					},
+
+					"patterns": []
 				}
 			]
 		}

@@ -1,0 +1,39 @@
+text.css {
+	respond <<CSS
+	.foo {
+		color: red;
+	}
+	CSS 200
+}
+
+text.html {
+	respond <<HTML
+	<html>
+	<head><title>Foo</title>
+	<body>Foo</body>
+	</html>
+	HTML 200
+}
+
+text.js {
+	respond <<JS
+	function foo() {
+		alert("foo");
+	}
+	JS 200
+}
+
+text.json {
+	respond <<JSON
+	{
+		"caddy": "is great"
+	}
+	JSON 200
+}
+
+text.xml {
+	respond <<XML
+	<xml>
+	</xml>
+	XML 200
+}
