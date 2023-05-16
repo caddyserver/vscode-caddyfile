@@ -16,10 +16,10 @@
 		"vscode-languageserver-textdocument": "1.0.7"
 	},
 	"devDependencies": {
-		"@types/node": "16.11.65",
+		"@types/node": "18.16.10",
 		"cross-env": "7.0.3",
-		"esbuild": "0.16.16",
-		"rimraf": "3.0.2",
-		"typescript": "4.9.4"
+		"esbuild": "0.17.19",
+		"rimraf": "5.0.0",
+		"typescript": "5.0.4"
 	}
 }

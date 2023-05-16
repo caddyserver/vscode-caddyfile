@@ -11,7 +11,6 @@ build({
 	minify: isProduction,
 	charset: 'utf8',
 	logLevel: 'info',
-	watch: !isProduction,
 
 	bundle: true,
 	external: ['vscode'],
