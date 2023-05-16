@@ -1,7 +1,7 @@
 {
 	"name": "@caddyserver/vscode-caddyfile",
 	"description": "Rich Caddyfile support for Visual Studio Code ",
-	"version": "0.2.4",
+	"version": "0.3.0",
 	"license": "MIT",
 	"publisher": "matthewpi",
 	"private": true,

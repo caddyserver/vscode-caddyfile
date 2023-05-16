@@ -4,6 +4,12 @@ All notable changes to the `vscode-caddyfile-support` project will be documented
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.3.0] - 2023-05-16
+
+### Added
+
+- Added support for Heredoc ([f878179](https://github.com/caddyserver/vscode-caddyfile/commit/f878179ebfac5a2c2765a8efa47dae2cc6e46f50))
+
 ## [v0.2.4] - 2023-02-16
 
 ### Added

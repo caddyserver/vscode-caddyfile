@@ -1,7 +1,7 @@
 {
 	"name": "@caddyserver/caddyfile-language-server",
 	"description": "",
-	"version": "0.2.4",
+	"version": "0.3.0",
 	"license": "MIT",
 	"publisher": "matthewpi",
 	"private": true,
