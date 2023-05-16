@@ -10,7 +10,7 @@ This is essentially an updated version of [`vscode-caddyfile-syntax`](https://gi
 
 ## Configuration
 
-- `caddyfile.executable`: Location of the `caddy` executable to use for code formatting and linting. (Default: `""`)
+- `caddyfile.executable`: Location of the `caddy` executable to use for code formatting. (Default: `""`)
 
 ## Features
 
