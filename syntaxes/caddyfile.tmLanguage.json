@@ -160,7 +160,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.Caddyfile",
-					"match": "\\{[\\w+.\\$-]+\\}"
+					"match": "\\{[\\[\\]\\w.\\$+-]+\\}"
 				}
 			]
 		},
