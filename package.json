@@ -1,111 +1,127 @@
 {
-    "name": "caddyfile-support",
-    "displayName": "Caddyfile Support",
-    "description": "Rich Caddyfile support for Visual Studio Code",
-    "version": "0.3.0",
-    "license": "MIT",
-    "private": true,
-    "main": "packages/client/dist/index.js",
-    "packageManager": "pnpm@8.5.0",
-    "icon": "media/caddy-logo.png",
-    "categories": [
-        "Programming Languages",
-        "Linters",
-        "Formatters"
-    ],
-    "publisher": "matthewpi",
-    "author": {
-        "name": "Caddy Team"
-    },
-    "repository": {
-        "type": "git",
+	"name": "caddyfile-support",
+	"displayName": "Caddyfile Support",
+	"description": "Rich Caddyfile support for Visual Studio Code",
+	"version": "0.3.0",
+	"license": "MIT",
+	"private": true,
+	"main": "packages/client/dist/index.js",
+	"packageManager": "pnpm@8.5.0",
+	"icon": "media/caddy-logo.png",
+	"categories": [
+		"Programming Languages",
+		"Linters",
+		"Formatters"
+	],
+	"publisher": "matthewpi",
+	"author": {
+		"name": "Caddy Team"
+	},
+	"repository": {
+		"type": "git",
 		"url": "https://github.com/caddyserver/vscode-caddyfile"
-    },
-    "bugs": {
-        "url": "https://github.com/caddyserver/vscode-caddyfile/issues"
-    },
-    "engines": {
-        "node": ">=16.13.0",
-        "vscode": ">=1.67.0"
-    },
-    "scripts": {
-        "vscode:prepublish": "pnpm run build",
+	},
+	"bugs": {
+		"url": "https://github.com/caddyserver/vscode-caddyfile/issues"
+	},
+	"engines": {
+		"node": ">=16.13.0",
+		"vscode": ">=1.67.0"
+	},
+	"scripts": {
+		"vscode:prepublish": "pnpm run build",
 		"package": "mkdir dist; pnpm vsce package --no-dependencies --no-yarn --out dist/caddyfile-support.vsix",
-        "build": "turbo run build",
-        "dev": "turbo run dev --no-cache --parallel --continue",
-        "lint": "turbo run lint",
-        "clean": "turbo run clean && rimraf node_modules/.cache"
-    },
-    "devDependencies": {
+		"build": "turbo run build",
+		"dev": "turbo run dev --no-cache --parallel --continue",
+		"lint": "turbo run lint",
+		"clean": "turbo run clean && rimraf node_modules/.cache"
+	},
+	"devDependencies": {
 		"@vscode/vsce": "2.19.0",
-        "prettier": "2.8.8",
-        "rimraf": "5.0.0",
-        "turbo": "1.9.6",
-        "typescript": "5.0.4"
-    },
-    "extensionDependencies": [],
-    "activationEvents": [
-        "onLanguage:caddyfile",
-        "workspaceContains:**/Caddyfile",
-        "workspaceContains:**/Caddyfile*",
-        "workspaceContains:**/caddyfile",
-        "workspaceContains:**/caddyfile*",
-        "workspaceContains:**/*.Caddyfile",
-        "workspaceContains:**/*.caddyfile"
-    ],
-    "contributes": {
-        "languages": [
-            {
-                "id": "caddyfile",
-                "configuration": "./language-configuration.json",
-                "aliases": [
-                    "Caddyfile",
-                    "Caddy",
-                    "caddyfile",
-                    "caddy"
-                ],
-                "extensions": [
-                    "Caddyfile",
-                    "Caddyfile*",
-                    "caddyfile",
-                    "caddyfile*",
-                    "*.Caddyfile",
-                    "*.caddyfile"
-                ]
-            }
-        ],
-        "grammars": [
-            {
-                "language": "caddyfile",
-                "scopeName": "source.Caddyfile",
-                "path": "./syntaxes/caddyfile.tmLanguage.json"
-            },
-            {
-                "scopeName": "source.markdown.caddy.codeblock",
-                "path": "./syntaxes/caddy-markdown.tmLanguage.json",
-                "injectTo": [
-                    "text.html.markdown"
-                ],
-                "embeddedLanguages": {
-                    "meta.embedded.block.caddy": "caddyfile"
-                }
-            }
-        ],
-        "configurationDefaults": {
-            "[caddyfile]": {
-                "editor.insertSpaces": false,
-                "editor.formatOnSave": true
-            }
-        },
-        "configuration": {
-            "title": "Caddyfile",
-            "properties": {
-                "caddyfile.executable": {
-                    "type": "string",
-                    "default": "",
-                    "description": "Location of the `caddy` executable to use for code formatting and linting."
-                }
-            }
-        }
-    }
+		"prettier": "2.8.8",
+		"rimraf": "5.0.0",
+		"turbo": "1.9.6",
+		"typescript": "5.0.4"
+	},
+	"extensionDependencies": [],
+	"activationEvents": [
+		"onLanguage:caddyfile",
+		"workspaceContains:**/Caddyfile",
+		"workspaceContains:**/Caddyfile*",
+		"workspaceContains:**/caddyfile",
+		"workspaceContains:**/caddyfile*",
+		"workspaceContains:**/*.Caddyfile",
+		"workspaceContains:**/*.caddyfile"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "caddyfile",
+				"configuration": "./language-configuration.json",
+				"aliases": [
+					"Caddyfile",
+					"Caddy",
+					"caddyfile",
+					"caddy"
+				],
+				"extensions": [
+					"Caddyfile",
+					"Caddyfile*",
+					"caddyfile",
+					"caddyfile*",
+					"*.Caddyfile",
+					"*.caddyfile"
+				]
+			},
+			{
+				"id": "caddyfile-test",
+				"configuration": "./language-configuration.json",
+				"aliases": [
+					"Caddyfile-test"
+				],
+				"extensions": [
+					"*.Caddyfiletest",
+					"*.caddyfiletest"
+				]
+			}
+		],
+		"grammars": [
+			{
+				"language": "caddyfile",
+				"scopeName": "source.Caddyfile",
+				"path": "./syntaxes/caddyfile.tmLanguage.json"
+			},
+			{
+				"language": "caddyfile-test",
+				"scopeName": "source.Caddyfile-test",
+				"path": "./syntaxes/caddyfile-test.tmLanguage.json"
+			},
+			{
+				"scopeName": "source.markdown.caddy.codeblock",
+				"path": "./syntaxes/caddy-markdown.tmLanguage.json",
+				"injectTo": [
+					"text.html.markdown"
+				],
+				"embeddedLanguages": {
+					"meta.embedded.block.caddy": "caddyfile"
+				}
+			}
+		],
+		"configurationDefaults": {
+			"[caddyfile]": {
+				"editor.insertSpaces": false,
+				"editor.formatOnSave": true
+			}
+		},
+		"configuration": {
+			"title": "Caddyfile",
+			"properties": {
+				"caddyfile.executable": {
+					"type": "string",
+					"default": "",
+					"description": "Location of the `caddy` executable to use for code formatting and linting."
+				}
+			}
+		}
+	}
 }

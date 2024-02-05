@@ -4,10 +4,7 @@
 	"scopeName": "source.markdown.caddy.codeblock",
 	"injectionSelector": "L:text.html.markdown",
 
-	"patterns": [
-		{ "include": "#caddy-code-block" },
-		{ "include": "#caddy-d-code-block" }
-	],
+	"patterns": [{ "include": "#caddy-code-block" }, { "include": "#caddy-d-code-block" }],
 
 	"repository": {
 		"caddy-code-block": {
@@ -42,9 +39,7 @@
 					"while": "(^|\\G)(?!\\s*([`~]{3,})\\s*$)",
 					"contentName": "meta.embedded.block.caddy",
 
-					"patterns": [
-						{ "include": "source.Caddyfile" }
-					]
+					"patterns": [{ "include": "source.Caddyfile" }]
 				}
 			]
 		},
@@ -80,9 +75,7 @@
 					"while": "(^|\\G)(?!\\s*([`~]{3,})\\s*$)",
 					"contentName": "meta.embedded.block.caddy",
 
-					"patterns": [
-						{ "include": "source.Caddyfile#block_content" }
-					]
+					"patterns": [{ "include": "source.Caddyfile#block_content" }]
 				}
 			]
 		}

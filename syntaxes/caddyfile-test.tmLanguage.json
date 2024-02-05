@@ -1,0 +1,37 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+
+	"name": "Caddyfile-test",
+	"fileTypes": ["Caddyfile-test"],
+	"scopeName": "source.Caddyfile-test",
+
+	"patterns": [
+		{ "include": "#json" },
+		{ "include": "source.Caddyfile" }
+	],
+
+	"repository": {
+		"json": {
+			"patterns": [
+				{
+					"name": "meta.embedded.json",
+					"contentName": "source.json",
+
+					"begin": "^(-{10})$",
+					"beginCaptures": {
+						"0": { "name": "punctuation.section.embedded.start.json" }
+					},
+
+					"end": "^(\\})$",
+					"endCaptures": {
+						"0": { "name": "punctuation.section.embedded.start.json" }
+					},
+
+					"patterns": [
+						{ "include": "source.json" }
+					]
+				}
+			]
+		}
+	}
+}
