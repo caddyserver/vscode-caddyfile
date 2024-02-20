@@ -2,7 +2,7 @@
 	"name": "caddyfile-support",
 	"displayName": "Caddyfile Support",
 	"description": "Rich Caddyfile support for Visual Studio Code",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"license": "MIT",
 	"private": true,
 	"main": "packages/client/dist/index.js",
