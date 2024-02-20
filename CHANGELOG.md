@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+### Added
+
+- Added support for the `.caddyfiletest` file extension ([#299](https://github.com/caddyserver/vscode-caddyfile/issues/299))
+
 ### Fixed
 
 - Updated placeholder regex to support `[]` notation for accessing array elements ([#298](https://github.com/caddyserver/vscode-caddyfile/issues/298))
