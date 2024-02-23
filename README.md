@@ -12,6 +12,19 @@ This is essentially an updated version of [`vscode-caddyfile-syntax`](https://gi
 
 - `caddyfile.executable`: Location of the `caddy` executable to use for code formatting. (Default: `""`)
 
+### Using Container Caddy
+To use the binary from a container simply create a script with you preferible container manager.
+
+```
+cat >/usr/bin/caddy <<EOF
+#!/usr/bin/env bash
+# -*- coding: utf-8 -*-
+podman/docker run --rm -i docker.io/caddy:latest caddy "$@"
+EOF
+
+chmod +x /usr/bin/caddy
+```
+
 ## Features
 
 - Syntax Highlighting
